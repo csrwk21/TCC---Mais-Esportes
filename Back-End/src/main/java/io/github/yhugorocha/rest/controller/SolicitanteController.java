@@ -6,7 +6,9 @@ import io.github.yhugorocha.domain.repositorio.Enderecos;
 import io.github.yhugorocha.domain.repositorio.Solicitantes;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -67,15 +69,8 @@ public class SolicitanteController {
     }
 
     @GetMapping
-    public List<Solicitante> find(Solicitante filtro ){
-        ExampleMatcher matcher = ExampleMatcher
-                .matching()
-                .withIgnoreCase()
-                .withStringMatcher(
-                        ExampleMatcher.StringMatcher.CONTAINING );
-
-        Example example = Example.of(filtro, matcher);
-        return solicitantes.findAll(example);
+    public List<Solicitante> listAll(){
+        return solicitantes.findAll();
     }
 
 

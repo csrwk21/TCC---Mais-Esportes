@@ -1,0 +1,59 @@
+<mat-card >
+    <mat-card-title>Novo Gestor</mat-card-title>
+    <br>
+    <form #f2="ngForm" class="col-md-10">
+        <div class="row g-6">
+            <div class="col-md-6">
+                <label class="form-label">Nome</label>
+              <input type="text" class="form-control" aria-label="Nome">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="cpf">CPF</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <br>
+          <div class="row g-6">
+            <div class="col-md-6">
+                <label class="form-label">Região Administrativa</label>
+                <select class="form-select" id="iregioes" [(ngModel)]="regioes" aria-label="Default select example">
+                  <option *ngFor="let r of regioes"[ngValue]="r">{{r.sigla+' - '+r.nome}}</option>
+                </select>
+          </div>
+          </div>
+          <br>
+          <div class="row g-6">
+            <div class="col-md-6">
+                <label class="form-label">E-mail</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="telefone">Telefone</label>
+                <input type="text" class="form-control">
+            </div>
+          </div>
+          <br>
+          <div class="row g-6">
+            <div class="col-md-3">
+                <label class="form-label" for="login">Login</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="senha">Senha</label>
+                <input type="password" class="form-control" >
+              </div>
+            <div class="col-md-3">
+                <label class="form-label" for="confsenha">Confimar senha</label>
+                <input type="password" class="form-control">
+              </div>
+          </div>
+          <br>
+    </form>
+    <br>
+<button  class="btn-primary btn"  mat-raised-button >
+    Salvar
+</button>
+<button class="btn-danger btn" mat-raised-button >
+    Cancelar
+</button>
+</mat-card>

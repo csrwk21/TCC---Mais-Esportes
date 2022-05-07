@@ -1,11 +1,13 @@
 package io.github.yhugorocha.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -38,4 +40,8 @@ public class Quadra {
 
     @Column(name = "dt_registro")
     private LocalDate dt_endereco = LocalDate.now();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "quadra")
+    private List<Reserva> reservas;
 }

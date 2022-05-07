@@ -41,3 +41,14 @@ CREATE TABLE TB_GESTOR_RA(
     TELEFONE VARCHAR(20),
     ID_REGIAO INTEGER REFERENCES TB_REGIAO (ID)
 );
+
+CREATE TABLE tb_reservas(
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_solicitante INTEGER REFERENCES tb_solicitante (id),
+    id_quadra INTEGER REFERENCES tb_quadra (id),
+    dt_inicio TIMESTAMP,
+    dt_final TIMESTAMP,
+    dt_registro TIMESTAMP,
+    id_semana INTEGER REFERENCES tb_semana (id),
+    id_horario INTEGER REFERENCES tb_horario (id),
+);

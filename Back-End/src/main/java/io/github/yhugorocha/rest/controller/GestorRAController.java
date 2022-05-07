@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/agenda/gestorra/")
 public class GestorRAController {
@@ -35,4 +37,9 @@ public class GestorRAController {
         GestorRA gestor = service.salvar(dto);
         return gestor.getId();
     }
+    @GetMapping()
+    public List<GestorRA> findAll(){
+        return repository.findAll();
+    }
+
 }

@@ -1,0 +1,45 @@
+<mat-card class="conteiner-fluid">
+    <mat-card-title class="title">
+        CONSULTA DE GESTOR
+    </mat-card-title>
+    <mat-card-subtitle class="subtitle">
+        Está será a tela inicial para a visualização dos gestores
+    </mat-card-subtitle>
+    <button class="btn-primary" mat-raised-button (click)="navigateToGestorCreate()">
+        Novo Gestor
+    </button>
+<br>
+<br>
+<table class="table table-striped ">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Qtd Pessoas</th>
+      <th scope="col">Região</th>
+      <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ges of gestores; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ ges.nome }}</td>
+      <td>{{ ges.qtd_pessoas }}</td>
+      <td>{{ ges.regiao }}</td>
+      <td><a routerLink="">
+        <i class="material-icons edit">
+          edit
+        </i>
+      </a>
+      <a routerLink="">
+        <i class="material-icons delete">
+          delete
+        </i>
+      </a>
+    </td>
+    </tr>
+    </tbody>
+  </table>
+</mat-card>
+
+

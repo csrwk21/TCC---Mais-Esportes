@@ -1,10 +1,7 @@
 package io.github.yhugorocha.rest.controller;
 
 import io.github.yhugorocha.domain.entity.Regiao;
-import io.github.yhugorocha.domain.entity.Solicitante;
 import io.github.yhugorocha.domain.repositorio.Regioes;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -35,15 +32,8 @@ public class RegiaoController {
     }
 
     @GetMapping
-    public List<Regiao> find(Regiao filtro ){
-        ExampleMatcher matcher = ExampleMatcher
-                .matching()
-                .withIgnoreCase()
-                .withStringMatcher(
-                        ExampleMatcher.StringMatcher.CONTAINING );
-
-        Example example = Example.of(filtro, matcher);
-        return regioes.findAll(example);
+    public List<Regiao> findAll(){
+        return regioes.findAll();
     }
 
 }
