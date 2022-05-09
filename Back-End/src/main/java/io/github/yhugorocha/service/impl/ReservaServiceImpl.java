@@ -42,7 +42,7 @@ public class ReservaServiceImpl implements ReservaService {
         Semana semana = semanas.findById(reservaDto.getSemana())
                 .orElseThrow(()-> new RegraNegocioException("Dia da semana não encontrada"));
 
-        Horario horario = horarios.findById(reservaDto.getSemana())
+        Horario horario = horarios.findById(reservaDto.getHorario())
                 .orElseThrow(()-> new RegraNegocioException("Horario não encontrada"));
 
         reserva.setSolicitante(solicitante);
@@ -53,9 +53,13 @@ public class ReservaServiceImpl implements ReservaService {
         reserva.setSemana(semana);
         reserva.setHorario(horario);
 
-        reservas.save(reserva);
+         Boolean r = existeReserva(reserva);
 
-        return reserva;
+         if(r){
+             return reservas.save(reserva);
+         }else{
+             throw new RegraNegocioException("Já existe uma reserva cadastrada");
+         }
     }
 
     public List<Reserva> obterReservasPorQuadra(Integer idQuadra){
@@ -90,4 +94,20 @@ public class ReservaServiceImpl implements ReservaService {
                 .diaSemana(reserva.getSemana().getDia())
                 .horario(reserva.getHorario().getHora()).build();
     }
+
+    private Boolean existeReserva(Reserva reserva){
+        Integer idQuadra = reserva.getQuadra().getId();
+        Integer idSemana = reserva.getSemana().getId();
+        Integer idHorario = reserva.getHorario().getId();
+
+        List<Reserva> r = reservas.existeReserva(idQuadra,idSemana,idHorario);
+
+        if(r.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }

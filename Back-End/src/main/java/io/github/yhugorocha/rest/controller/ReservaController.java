@@ -29,6 +29,7 @@ public class ReservaController {
     @ResponseStatus(HttpStatus.CREATED)
     public Integer save(@RequestBody ReservaDTO reservaDto){
         Reserva reserva = service.save(reservaDto);
+
         return reserva.getId();
     }
 
