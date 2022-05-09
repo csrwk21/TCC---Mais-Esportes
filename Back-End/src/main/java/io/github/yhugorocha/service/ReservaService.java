@@ -1,6 +1,7 @@
 package io.github.yhugorocha.service;
 
 import io.github.yhugorocha.domain.entity.Reserva;
+import io.github.yhugorocha.rest.dto.InformacoesReservaDTO;
 import io.github.yhugorocha.rest.dto.ReservaDTO;
 import org.springframework.stereotype.Service;
 
@@ -10,5 +11,8 @@ import java.util.List;
 public interface ReservaService {
     Reserva save(ReservaDTO reservaDto);
 
-    List<Reserva> verificaHorario();
+    List<Reserva> obterReservasPorQuadra(Integer id);
+
+    InformacoesReservaDTO obterDadosReserva(Integer id);
+
 }

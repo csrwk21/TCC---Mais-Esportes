@@ -2,6 +2,7 @@ package io.github.yhugorocha.rest.controller;
 
 import io.github.yhugorocha.domain.entity.Quadra;
 import io.github.yhugorocha.domain.entity.Reserva;
+import io.github.yhugorocha.rest.dto.InformacoesReservaDTO;
 import io.github.yhugorocha.rest.dto.ReservaDTO;
 import io.github.yhugorocha.service.ReservaService;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class ReservaController {
 
     @GetMapping()
     public List<Reserva> findall() {
-        return service.verificaHorario();
+        return null;
     }
 
     @PostMapping
@@ -29,6 +30,16 @@ public class ReservaController {
     public Integer save(@RequestBody ReservaDTO reservaDto){
         Reserva reserva = service.save(reservaDto);
         return reserva.getId();
+    }
+
+    @GetMapping("{id}")
+    public InformacoesReservaDTO getById(@PathVariable Integer id){
+        return service.obterDadosReserva(id);
+    }
+
+    @GetMapping("quadra/{id}")
+    public List<Reserva> getPorQuadra(@PathVariable Integer id){
+        return service.obterReservasPorQuadra(id);
     }
 
 

@@ -1,10 +1,8 @@
 package io.github.yhugorocha.rest.controller;
 
 import io.github.yhugorocha.domain.entity.Quadra;
-import io.github.yhugorocha.domain.entity.Solicitante;
 import io.github.yhugorocha.rest.dto.QuadraDTO;
 import io.github.yhugorocha.service.QuadraService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -15,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/agenda/quadra/")
 public class QuadraController {
-
 
     QuadraService quadraService;
 
@@ -30,7 +27,7 @@ public class QuadraController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Quadra salvar(@RequestBody QuadraDTO quadraDTO){
+    public Quadra save(@RequestBody QuadraDTO quadraDTO){
 
         return quadraService.salvar(quadraDTO);
     }
@@ -57,6 +54,11 @@ public class QuadraController {
 
         Example example = Example.of(filtro, matcher);
         return quadraService.findAll(example);
+    }
+
+    @GetMapping("regiao/{id}")
+    public List<Quadra> findQuadraRegiao(@PathVariable Integer id){
+        return quadraService.obterQuadraPorRegiao(id);
     }
 
 }

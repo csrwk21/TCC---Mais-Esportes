@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface Reservas extends JpaRepository<Reserva, Integer> {
 
-    @Query(value = " SELECT r FROM Reserva r where r.id = :solicitante ")
-    List<Reserva> verificaHorario(@Param("solicitante") Integer solicitante);
+    @Query(value = " SELECT r FROM Reserva r left join fetch r.quadra q where q.id =:idQuadra ")
+    List<Reserva> reservaPorQuadra(@Param("idQuadra") Integer idQuadra);
+
 }

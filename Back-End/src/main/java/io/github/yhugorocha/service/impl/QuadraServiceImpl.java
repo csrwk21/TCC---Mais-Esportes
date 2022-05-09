@@ -82,5 +82,10 @@ public class QuadraServiceImpl implements QuadraService {
         return quadras.findAll();
     }
 
+    @Override
+    public List<Quadra> obterQuadraPorRegiao(Integer id) {
+        return quadras.quadraPorRegiao(id);
+    }
+
 
 }

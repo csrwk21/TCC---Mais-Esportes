@@ -19,4 +19,6 @@ public interface QuadraService {
     Quadra update(Integer id, Quadra quadra);
 
     List<Quadra> findAll(Example example);
+
+    List<Quadra> obterQuadraPorRegiao(Integer id);
 }

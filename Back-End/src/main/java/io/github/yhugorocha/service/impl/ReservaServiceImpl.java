@@ -3,6 +3,7 @@ package io.github.yhugorocha.service.impl;
 import io.github.yhugorocha.domain.entity.*;
 import io.github.yhugorocha.domain.repositorio.*;
 import io.github.yhugorocha.exception.RegraNegocioException;
+import io.github.yhugorocha.rest.dto.InformacoesReservaDTO;
 import io.github.yhugorocha.rest.dto.ReservaDTO;
 import io.github.yhugorocha.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,16 +58,36 @@ public class ReservaServiceImpl implements ReservaService {
         return reserva;
     }
 
-    public List<Reserva> verificaHorario(){
+    public List<Reserva> obterReservasPorQuadra(Integer idQuadra){
 
-        Integer idSolicitante = 1;
-        Integer idQuadra = 2;
-        Integer idSemana = 1;
-        Integer idHorario = 1;
-
-        List<Reserva> reservas = this.reservas.verificaHorario(idSolicitante);
+        List<Reserva> reservas = this.reservas.reservaPorQuadra(idQuadra);
 
         return reservas;
 
+    }
+
+    @Override
+    public InformacoesReservaDTO obterDadosReserva(Integer id) {
+
+        return reservas.findById(id)
+                .map(r -> converter(r))
+                .orElseThrow(() -> new RegraNegocioException("Reserva não encontrada"));
+    }
+
+    public List<Reserva> findAll(){
+        return reservas.findAll();
+    }
+
+    private InformacoesReservaDTO converter(Reserva reserva){
+        return InformacoesReservaDTO.builder()
+                .codigo(reserva.getId())
+                .nomeSolicitante(reserva.getSolicitante().getNome())
+                .cpf(reserva.getSolicitante().getCpf())
+                .email(reserva.getSolicitante().getEmail())
+                .telefone(reserva.getSolicitante().getTelefone())
+                .nomeQuadra(reserva.getQuadra().getNome())
+                .enderecoQuadra(reserva.getQuadra().getEndereco())
+                .diaSemana(reserva.getSemana().getDia())
+                .horario(reserva.getHorario().getHora()).build();
     }
 }
