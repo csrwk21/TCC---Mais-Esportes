@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Data
@@ -20,6 +21,7 @@ public class Endereco {
     private Integer id;
 
     @Column(name = "cep", length = 15)
+    @NotEmpty(message = "Campo cep é obrigatório.")
     private String cep;
 
     @Column(name = "logradouro", length = 50)

@@ -21,5 +21,6 @@ public class InformacoesReservaDTO {
     private Endereco enderecoQuadra;
     private String diaSemana;
     private String horario;
+    private String status;
 
 }

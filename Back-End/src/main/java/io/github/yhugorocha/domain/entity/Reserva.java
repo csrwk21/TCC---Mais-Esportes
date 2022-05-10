@@ -3,6 +3,7 @@ package io.github.yhugorocha.domain.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
+import io.github.yhugorocha.domain.enums.StatusReserva;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,5 +47,9 @@ public class Reserva {
     @JoinColumn(name = "id_horario")
     @OneToOne
     private Horario horario;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StatusReserva status;
 
 }

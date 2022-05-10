@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,9 +23,11 @@ public class Quadra {
     private Integer id;
 
     @Column(name = "nome")
+    @NotEmpty(message = "Campo nome é obrigatório.")
     private String nome;
 
     @Column(name = "qtd_pessoas")
+    @NotEmpty(message = "Campo quantidade de pessoas é obrigatório.")
     private Integer qtd_pessoas;
 
     @Column(name = "foto")

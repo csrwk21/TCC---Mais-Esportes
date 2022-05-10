@@ -51,4 +51,5 @@ CREATE TABLE tb_reservas(
     dt_registro TIMESTAMP,
     id_semana INTEGER REFERENCES tb_semana (id),
     id_horario INTEGER REFERENCES tb_horario (id),
+    status VARCHAR(10)
 );

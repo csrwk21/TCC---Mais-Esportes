@@ -1,8 +1,10 @@
 package io.github.yhugorocha.service.impl;
 
 import io.github.yhugorocha.domain.entity.*;
+import io.github.yhugorocha.domain.enums.StatusReserva;
 import io.github.yhugorocha.domain.repositorio.*;
 import io.github.yhugorocha.exception.RegraNegocioException;
+import io.github.yhugorocha.exception.ReservaNaoEncontradaException;
 import io.github.yhugorocha.rest.dto.InformacoesReservaDTO;
 import io.github.yhugorocha.rest.dto.ReservaDTO;
 import io.github.yhugorocha.service.ReservaService;
@@ -52,6 +54,7 @@ public class ReservaServiceImpl implements ReservaService {
         reserva.setDtRegistro(LocalDate.now());
         reserva.setSemana(semana);
         reserva.setHorario(horario);
+        reserva.setStatus(StatusReserva.ATIVA);
 
          Boolean r = existeReserva(reserva);
 
@@ -78,6 +81,15 @@ public class ReservaServiceImpl implements ReservaService {
                 .orElseThrow(() -> new RegraNegocioException("Reserva não encontrada"));
     }
 
+    @Override
+    @Transactional
+    public void atualizaStatus(Integer id, StatusReserva statusReserva) {
+        reservas.findById(id).map(reserva -> {
+            reserva.setStatus(statusReserva);
+            return reservas.save(reserva);
+        }).orElseThrow(()-> new ReservaNaoEncontradaException());
+    }
+
     public List<Reserva> findAll(){
         return reservas.findAll();
     }
@@ -92,6 +104,7 @@ public class ReservaServiceImpl implements ReservaService {
                 .nomeQuadra(reserva.getQuadra().getNome())
                 .enderecoQuadra(reserva.getQuadra().getEndereco())
                 .diaSemana(reserva.getSemana().getDia())
+                .status(reserva.getStatus().name())
                 .horario(reserva.getHorario().getHora()).build();
     }
 

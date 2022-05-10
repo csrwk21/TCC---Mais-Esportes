@@ -2,6 +2,8 @@ package io.github.yhugorocha.rest.controller;
 
 import io.github.yhugorocha.domain.entity.Quadra;
 import io.github.yhugorocha.domain.entity.Reserva;
+import io.github.yhugorocha.domain.enums.StatusReserva;
+import io.github.yhugorocha.rest.dto.AtualizaStatusReservaDTO;
 import io.github.yhugorocha.rest.dto.InformacoesReservaDTO;
 import io.github.yhugorocha.rest.dto.ReservaDTO;
 import io.github.yhugorocha.service.ReservaService;
@@ -43,5 +45,10 @@ public class ReservaController {
         return service.obterReservasPorQuadra(id);
     }
 
-
+    @PatchMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateStatus(@PathVariable Integer id, @RequestBody AtualizaStatusReservaDTO dto){
+        String status = dto.getNovoStatus();
+        service.atualizaStatus(id, StatusReserva.valueOf(status));
+    }
 }

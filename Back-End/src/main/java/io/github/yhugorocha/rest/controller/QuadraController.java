@@ -8,6 +8,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class QuadraController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Quadra save(@RequestBody QuadraDTO quadraDTO){
+    public Quadra save(@RequestBody @Valid QuadraDTO quadraDTO){
 
         return quadraService.salvar(quadraDTO);
     }
@@ -40,7 +41,7 @@ public class QuadraController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Quadra update (@PathVariable Integer id, @RequestBody Quadra quadra){
+    public Quadra update (@PathVariable Integer id, @Valid @RequestBody Quadra quadra){
 
         return quadraService.update(id,quadra);
     }

@@ -4,14 +4,11 @@ import io.github.yhugorocha.domain.entity.Endereco;
 import io.github.yhugorocha.domain.entity.Solicitante;
 import io.github.yhugorocha.domain.repositorio.Enderecos;
 import io.github.yhugorocha.domain.repositorio.Solicitantes;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,7 +32,7 @@ public class SolicitanteController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public Solicitante salvar(@RequestBody Solicitante solicitante){
+    public Solicitante salvar(@RequestBody @Valid Solicitante solicitante){
 
         Endereco end = enderecos.save(solicitante.getEndereco());
         solicitante.setEndereco(end);
@@ -55,7 +52,7 @@ public class SolicitanteController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Solicitante update(@PathVariable Integer id, @RequestBody Solicitante solicitante){
+    public Solicitante update(@PathVariable Integer id, @RequestBody @Valid Solicitante solicitante){
 
         solicitantes
                 .findById(id)
