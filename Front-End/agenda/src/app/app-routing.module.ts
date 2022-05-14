@@ -1,3 +1,9 @@
+import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-delete.component';
+import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
+import { QuadraDeleteComponent } from './components/quadra/quadra-delete/quadra-delete.component';
+import { SolicitanteDeleteComponent } from './components/solicitante/solicitante-delete/solicitante-delete.component';
+import { QuadraUpdateComponent } from './components/quadra/quadra-update/quadra-update.component';
+import { SolicitanteUpdateComponent } from './components/solicitante/solicitante-update/solicitante-update.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -32,12 +38,36 @@ const routes: Routes = [{
   component: SolicitanteCreateComponent
 },
 {
+  path:"solicitante/update/:id",
+  component: SolicitanteUpdateComponent
+},
+{
+  path:"solicitante/delete/:id",
+  component: SolicitanteDeleteComponent
+},
+{
   path:"quadra/create",
   component: QuadraCreateComponent
 },
 {
+  path:"quadra/update/:id",
+  component: QuadraUpdateComponent
+},
+{
+  path:"quadra/delete/:id",
+  component: QuadraDeleteComponent
+},
+{
   path:"gestor/create",
   component: GestorCreateComponent
+},
+{
+  path:"gestor/update/:id",
+  component: GestorUpdateComponent
+},
+{
+  path:"gestor/delete/:id",
+  component: GestorDeleteComponent
 },
 {
   path:"reserva/create",

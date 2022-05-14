@@ -27,7 +27,6 @@ public class Quadra {
     private String nome;
 
     @Column(name = "qtd_pessoas")
-    @NotEmpty(message = "Campo quantidade de pessoas é obrigatório.")
     private Integer qtd_pessoas;
 
     @Column(name = "foto")

@@ -1,0 +1,84 @@
+<mat-card >
+    <mat-card-title>Alterar Solicitante </mat-card-title>
+    <br>
+    <form class="col-md-10">
+        <div class="row g-6">
+            <div class="col-md-6">
+                <label class="form-label">Nome</label>
+              <input type="text" class="form-control" [(ngModel)]="solicitante.nome" name="nome">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">CPF</label>
+              <input type="text" class="form-control" placeholder="xxx.xxx.xxx-xx" [(ngModel)]="solicitante.cpf" name="cpf">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">RG</label>
+                <input type="text" class="form-control" [(ngModel)]="solicitante.rg" name="rg">
+              </div>
+            
+          </div>
+          <br>
+          <div class="row g-6">
+            <div class="col">
+                <label class="form-label">Data Nascimento</label>
+              <input type="date" class="form-control" [(ngModel)]="solicitante.dtnascimento" name="dtnascimento">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Telefone</label>
+                <input type="text" class="form-control" placeholder="(xx) xxxxx-xxxx" [(ngModel)]="solicitante.telefone" name="telefone">
+              </div>
+            <div class="col">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control"aria-label="E-mail" [(ngModel)]="solicitante.email" name="email">
+              </div>
+          </div>
+          <br>
+          <form #f="ngForm">
+          <div class="row g-6">
+            <div class="col-md-3">
+                <label class="form-label" for="cep">CEP</label>
+              <input type="text" class="form-control" id="cep" name="cep" ngModel #cep="ngModel" [(ngModel)]="solicitante.endereco.cep" (blur)="consultaCep(cep.value,f)">
+            </div>
+            <div class="col">
+                <label class="form-label" for="logradouro">Logradouro</label>
+                <input type="text" class="form-control" id="logradouro" name="logradouro" ngModel #logradouro="ngModel" [(ngModel)]="solicitante.endereco.logradouro">
+              </div>
+            <div class="col">
+                <label class="form-label" for="bairro">Bairro</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" ngModel #bairro="ngModel" [(ngModel)]="solicitante.endereco.bairro">
+              </div>
+          </div>
+          <br>
+          <div class="row g-6">
+            <div class="col-md-4">
+                <label class="form-label" for="localidade">Localidade</label>
+                <input type="text" class="form-control" id="localidade" name="localidade" ngModel #localidade="ngModel" [(ngModel)]="solicitante.endereco.localidade">
+            </div>
+            
+            <div class="col-md-2">
+                <label class="form-label" for="uf">UF</label>
+                <input type="text" class="form-control" id="uf" name="uf" ngModel #uf="ngModel" [(ngModel)]="solicitante.endereco.uf">
+              </div>
+            </div>
+            </form>
+            <div class="row g-6">
+            <div class="col-md-4">
+                <label class="form-label">Complemento</label>
+                <input type="text" class="form-control" [(ngModel)]="solicitante.endereco.complemento" name="complemento">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Número</label>
+                <input type="email" class="form-control" [(ngModel)]="solicitante.endereco.numero" name="numero">
+              </div>
+            </div>
+          <br>
+    </form>
+    <br>
+<button class="btn btn-warning"  mat-raised-button (click)="updateSolicitante()">
+    Alterar
+</button>
+<button class="btn-danger btn" mat-raised-button (click)="cancel()">
+    Cancelar
+</button>
+</mat-card>
+

@@ -4,32 +4,30 @@
     <form class="col-md-10">
         <div class="row g-6">
             <div class="col-md-6">
-                <label class="form-label">Nome</label>
-              <input type="text" class="form-control" [(ngModel)]="gestor.nome" name="nome">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-control" name="nome" [ngModel]="gestor.nome" disabled>
             </div>
             <div class="col-md-3">
                 <label class="form-label">CPF</label>
-              <input type="text" class="form-control" [(ngModel)]="gestor.cpf" name="cpf">
+              <input type="text" class="form-control" [value]="gestor.cpf" name="cpf" disabled>
             </div>
           </div>
           <br>
           <div class="row g-6">
             <div class="col-md-6">
                 <label class="form-label">Região Administrativa</label>
-                <select class="form-select" id="iregioes" [(ngModel)]="gestor.regiao" name="regiao">
-                  <option *ngFor="let r of regiao"[ngValue]="r">{{r.sigla+' - '+r.nome}}</option>
-                </select>
+                <input type="text" class="form-control" [ngModel]="gestor.regiao.nome" name="regiao" disabled>
           </div>
           </div>
           <br>
           <div class="row g-6">
             <div class="col-md-6">
                 <label class="form-label">E-mail</label>
-                <input type="text" class="form-control" [(ngModel)]="gestor.email" name="email">
+                <input type="text" class="form-control" [value]="gestor.email" name="email" disabled>
               </div>
               <div class="col-md-3">
                 <label class="form-label" for="telefone">Telefone</label>
-                <input type="text" class="form-control" [(ngModel)]="gestor.telefone" name="telefone">
+                <input type="text" class="form-control" [value]="gestor.telefone" name="telefone" disabled>
             </div>
           </div>
           <br>
@@ -50,10 +48,11 @@
         </div>
     </div>
     <br>
-<button  class="btn-primary btn"  mat-raised-button (click)="createGestor()">
-    Salvar
+<button  class="btn btn-warning" mat-raised-button (click)="deleteGestor()">
+    Deletar
 </button>
 <button class="btn-danger btn" mat-raised-button (click)="cancel()">
     Cancelar
 </button>
 </mat-card>
+

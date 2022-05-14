@@ -11,6 +11,7 @@ export class CrudServiceService {
   constructor(private http: HttpClient) { }
 
   buscar(cep:String){
+    console.log(cep);
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
   }
 

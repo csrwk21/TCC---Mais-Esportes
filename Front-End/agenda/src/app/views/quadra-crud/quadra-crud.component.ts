@@ -22,7 +22,6 @@ export class QuadraCrudComponent implements OnInit {
       .subscribe(
         data => {
           this.quadras = data;
-          console.log('data');
           console.log(data);
         },
         error => {

@@ -33,7 +33,7 @@ public class GestorRAServiceImpl implements GestorRAService {
         gestor.setNome(dto.getNome());
         gestor.setEmail(dto.getEmail());
         gestor.setTelefone(dto.getTelefone());
-        gestor.setRegiaoAdm(regiao);;
+        gestor.setRegiao(regiao);
 
         return repository.save(gestor);
     }

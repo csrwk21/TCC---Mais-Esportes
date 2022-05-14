@@ -29,12 +29,12 @@
       <td>{{ qua.nome }}</td>
       <td>{{ qua.qtd_pessoas }}</td>
       <td>{{ qua.regiao.sigla + " - " + qua.regiao.nome }}</td>
-      <td><a routerLink="">
+      <td><a routerLink="/quadra/update/{{qua.id}}">
         <i class="material-icons edit">
           edit
         </i>
       </a>
-      <a routerLink="">
+      <a routerLink="/quadra/delete/{{qua.id}}">
         <i class="material-icons delete">
           delete
         </i>

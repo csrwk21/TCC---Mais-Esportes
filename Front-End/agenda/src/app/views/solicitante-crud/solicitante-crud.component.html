@@ -27,12 +27,12 @@
       <td>{{ sol.nome }}</td>
       <td>{{ sol.cpf }}</td>
       <td>{{ sol.email }}</td>
-      <td><a routerLink="">
+      <td><a routerLink="/solicitante/update/{{sol.id}}">
         <i class="material-icons edit">
-          edit
+          edits
         </i>
       </a>
-      <a routerLink="">
+      <a routerLink="/solicitante/delete/{{sol.id}}">
         <i class="material-icons delete">
           delete
         </i>

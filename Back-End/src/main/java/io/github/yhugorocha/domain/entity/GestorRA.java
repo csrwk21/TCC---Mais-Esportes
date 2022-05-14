@@ -29,7 +29,6 @@ public class GestorRA {
     private String Email;
 
     @Column(name = "cpf", length = 15)
-    @NotEmpty(message = "Campo email é obrigatório.")
     @CPF(message = "Informe um CPF válido")
     private String cpf;
 
@@ -39,5 +38,5 @@ public class GestorRA {
 
     @JoinColumn(name = "id_regiao")
     @ManyToOne
-    private Regiao regiaoAdm;
+    private Regiao regiao;
 }

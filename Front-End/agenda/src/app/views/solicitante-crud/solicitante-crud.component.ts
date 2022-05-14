@@ -37,5 +37,6 @@ export class SolicitanteCrudComponent implements OnInit {
   navigateToSolicitanteCreate(): void{
     this.router.navigate(['/solicitante/create'])
   }
+  
 
 }

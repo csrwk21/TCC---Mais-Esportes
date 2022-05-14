@@ -34,9 +34,13 @@ public class GestorRAController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Integer save(@RequestBody @Valid GestorRADTO dto){
-
         GestorRA gestor = service.salvar(dto);
         return gestor.getId();
+    }
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Integer id){
+        repository.deleteById(id);
     }
 
     @GetMapping()

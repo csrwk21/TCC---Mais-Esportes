@@ -33,6 +33,12 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReservaCreateComponent } from './components/reserva/reserva-create/reserva-create.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SolicitanteUpdateComponent } from './components/solicitante/solicitante-update/solicitante-update.component';
+import { QuadraUpdateComponent } from './components/quadra/quadra-update/quadra-update.component';
+import { SolicitanteDeleteComponent } from './components/solicitante/solicitante-delete/solicitante-delete.component';
+import { QuadraDeleteComponent } from './components/quadra/quadra-delete/quadra-delete.component';
+import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-delete.component';
+import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +54,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     QuadraCreateComponent,
     GestorCreateComponent,
     ReservaCreateComponent,
+    SolicitanteUpdateComponent,
+    QuadraUpdateComponent,
+    SolicitanteDeleteComponent,
+    QuadraDeleteComponent,
+    GestorDeleteComponent,
+    GestorUpdateComponent,
 
   ],
   imports: [
