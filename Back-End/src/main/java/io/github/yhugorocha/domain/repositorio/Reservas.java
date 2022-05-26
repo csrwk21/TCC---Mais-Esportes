@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface Reservas extends JpaRepository<Reserva, Integer> {
 
-    @Query(value = " SELECT r FROM Reserva r left join fetch r.quadra q where q.id =:idQuadra ")
+    @Query(value = " SELECT r FROM Reserva r left join fetch r.quadra q where q.id =:idQuadra AND r.status = 'ATIVA' ")
     List<Reserva> reservaPorQuadra(@Param("idQuadra") Integer idQuadra);
 
     @Query(value = "SELECT r FROM Reserva r " +
@@ -18,7 +18,8 @@ public interface Reservas extends JpaRepository<Reserva, Integer> {
             "left join fetch r.horario h " +
             "where (q.id =:idQuadra AND " +
             "s.id =:idSemana AND " +
-            "h.id =:idHorario )")
+            "h.id =:idHorario AND " +
+            "r.status = 'ATIVA')")
     List<Reserva> existeReserva (@Param("idQuadra") Integer idQuadra,
                            @Param("idSemana") Integer idSemana,
                            @Param("idHorario") Integer idHorario);

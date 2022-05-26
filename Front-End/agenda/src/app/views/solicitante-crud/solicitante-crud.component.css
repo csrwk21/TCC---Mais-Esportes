@@ -5,3 +5,9 @@ i.edit{
 i.delete{
     color: #e35e6b;
 }
+table {
+    width: 100%;
+}
+.new{
+    right: 100px;
+}

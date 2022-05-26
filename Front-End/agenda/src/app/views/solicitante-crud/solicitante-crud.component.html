@@ -2,15 +2,19 @@
     <mat-card-title class="title">
         CONSULTA DE SOLICITANTES
     </mat-card-title>
-    <mat-card-subtitle class="subtitle">
-        Está será a tela inicial para a visualização dos solicitantes
-    </mat-card-subtitle>
-<button class="btn-primary" mat-raised-button (click)="navigateToSolicitanteCreate()">
+<br>
+<div class="col-sm-3">
+  <button class="btn-primary" mat-raised-button (click)="navigateToSolicitanteCreate()">
     Novo Solicitante
 </button>
-<br>
+</div>
 <br>
 <div class="table-container">
+<div class="form-group row">
+  <div class="col-sm-3">
+    <input [(ngModel)]="filter" class="form-control" placeholder="Pesquise por Nome">
+  </div>
+</div>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -22,7 +26,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let sol of solicitantes; index as i">
+    <tr *ngFor="let sol of filteredSolicitantes; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ sol.nome }}</td>
       <td>{{ sol.cpf }}</td>

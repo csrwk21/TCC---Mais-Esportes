@@ -12,6 +12,8 @@ import { SolicitanteService } from 'src/app/components/solicitante/solicitante.s
 export class SolicitanteCrudComponent implements OnInit {
   
   solicitantes: any;
+  filteredSolicitantes: any[] = [];
+  _filterby!: string;
 
   constructor(private router: Router, private service: SolicitanteService) { 
 
@@ -26,12 +28,20 @@ export class SolicitanteCrudComponent implements OnInit {
       .subscribe(
         data => {
           this.solicitantes = data;
-          console.log('data');
-          console.log(data);
+          this.filteredSolicitantes = this.solicitantes;
         },
         error => {
           console.log(error);
         });
+  }
+
+  set filter(value:string){
+    this._filterby = value;
+    this.filteredSolicitantes = this.solicitantes.filter((sol:any)=>sol.nome.toLocaleLowerCase().indexOf(this._filterby.toLocaleLowerCase()) > -1);
+
+  }
+  get filter(){
+    return this._filterby
   }
 
   navigateToSolicitanteCreate(): void{

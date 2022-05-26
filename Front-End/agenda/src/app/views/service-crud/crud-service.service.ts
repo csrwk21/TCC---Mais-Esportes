@@ -18,4 +18,16 @@ export class CrudServiceService {
   buscarRegioes():Observable<any>{
     return this.http.get(`${baseUrl}/agenda/regiao/`);
   }
+  buscarSemana():Observable<any>{
+    return this.http.get(`${baseUrl}/agenda/semana/`);
+  }
+  buscarHorarios():Observable<any>{
+    return this.http.get(`${baseUrl}/agenda/horario/`);
+  }
+  buscarSolicitante():Observable<any>{
+    return this.http.get(`${baseUrl}/agenda/solicitante/`);
+  }
+  buscarQuadraPorRegiao(id:number):Observable<any>{
+    return this.http.get(`${baseUrl}/agenda/quadra/regiao/${id}`);
+  }
 }

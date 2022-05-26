@@ -7,21 +7,33 @@
 .home .subtitle{
     font-size: 1.1rem;
 }
-
+div{
+  border-collapse: collapse;
+}
 table {
     border-collapse: collapse;
-    border: 2px solid rgb(200,200,200);
+    border: 0px solid rgb(200,200,200);
     letter-spacing: 1px;
     font-size: 0.8rem;
+  }
+  .table-hu{
+    width: 1000px;
   }
 
   td, th {
     border: 1px solid rgb(190,190,190);
     padding: 10px 20px;
+    width: 100px;
+    height: 20px;
   }
 
   td {
     text-align: center;
+    
+  }
+
+  teste{
+    background-color: rgb(133, 250, 133);
   }
 
   caption {

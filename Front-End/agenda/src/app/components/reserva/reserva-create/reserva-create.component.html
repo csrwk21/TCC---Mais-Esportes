@@ -1,12 +1,65 @@
 <mat-card >
-    <mat-card-title>Nova Reserva</mat-card-title>
+    <mat-card-title>Cadastrar Reserva</mat-card-title>
     <br>
-    
+    <form #f="ngForm">
+      <div class="row g-8">
+        <div class="col-md-4">
+          <label class="form-label">Solicitante</label>
+          <input class="form-select" type="text" matInput  [matAutocomplete]="auto" name="filter" [(ngModel)]="filter">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let sol of filteredSolicitantes" [value]="sol.nome" (click)="adcSolicitante(sol.id)">
+              {{sol.nome}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <br>
+        <div class="row g-8">
+          <div class="col-md-4">
+            <label class="form-label">Região Administrativa</label>
+            <select class="form-select" type="number" (ngModel)="regioes" (change)="buscarQuadra($event)">
+              <option *ngFor="let r of regioes" [ngValue]="r.id">{{r.sigla+' - '+r.nome}}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Quadra</label>
+            <select class="form-select" type="number" name="quadra" id="quadra"  ngModel #quadra="ngModel" [(ngModel)]="novaReserva.quadra">
+              <option *ngFor="let q of quadras" [ngValue]="q.id">{{q.nome}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row g-8">
+            <div class="col-md-4">
+              <label class="form-label">Dia da Semana</label>
+              <select class="form-select" type="number" name="semana" id="semana"  ngModel #semana="ngModel" [(ngModel)]="novaReserva.semana">
+                <option *ngFor="let s of semanas" [ngValue]="s.id">{{s.dia}}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Horario</label>
+              <select class="form-select" type="number" name="horario" id="horario"  ngModel #horario="ngModel" [(ngModel)]="novaReserva.horario">
+                <option *ngFor="let h of horarios" [ngValue]="h.id">{{h.hora}}</option>
+              </select>
+            </div>
+        </div>
+        <br>
+        <div class="row g-8">
+            <div class="col-md-4">
+              <label class="form-label">Data Inicio</label>
+              <input type="date" class="form-control"  name="dtInicio"  id="dtInicio"  ngModel #dtInicio="ngModel" [(ngModel)]="novaReserva.dtInicio">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Data Final</label>
+            <input type="date" class="form-control" name="dtFinal" id="dtFinal"  ngModel #dtFinal="ngModel" [(ngModel)]="novaReserva.dtFinal">
+          </div>
+        </div>
+    </form>
     <br>
-<button  class="btn-primary btn"  mat-raised-button >
+<button  class="btn-primary btn"  mat-raised-button (click)="fazerReserva()">
     Salvar
 </button>
-<button class="btn-danger btn" mat-raised-button>
+<button class="btn-danger btn" mat-raised-button (click)="cancel()">
     Cancelar
 </button>
 </mat-card>

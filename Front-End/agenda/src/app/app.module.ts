@@ -29,16 +29,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReservaCreateComponent } from './components/reserva/reserva-create/reserva-create.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 import { SolicitanteUpdateComponent } from './components/solicitante/solicitante-update/solicitante-update.component';
 import { QuadraUpdateComponent } from './components/quadra/quadra-update/quadra-update.component';
 import { SolicitanteDeleteComponent } from './components/solicitante/solicitante-delete/solicitante-delete.component';
 import { QuadraDeleteComponent } from './components/quadra/quadra-delete/quadra-delete.component';
 import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-delete.component';
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-
     MatFormFieldModule,
     FormsModule,
     NgbModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    NgSelectModule,
 
     
   ],

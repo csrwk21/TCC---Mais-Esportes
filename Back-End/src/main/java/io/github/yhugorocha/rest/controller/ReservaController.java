@@ -1,6 +1,5 @@
 package io.github.yhugorocha.rest.controller;
 
-import io.github.yhugorocha.domain.entity.Quadra;
 import io.github.yhugorocha.domain.entity.Reserva;
 import io.github.yhugorocha.domain.enums.StatusReserva;
 import io.github.yhugorocha.rest.dto.AtualizaStatusReservaDTO;
