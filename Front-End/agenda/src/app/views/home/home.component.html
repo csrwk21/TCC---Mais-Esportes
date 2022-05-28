@@ -9,14 +9,15 @@
     <div class="row g-8">
       <div class="col-md-4">
         <label class="form-label">Região Administrativa</label>
-        <select class="form-select" type="number" (ngModel)="regiao" (blur)="buscarQuadra($event)">
+        <select class="form-select" type="number" (ngModel)="regiao" (change)="buscarQuadra($event)">
           <option ></option>
           <option *ngFor="let r of regiao" [ngValue]="r.id">{{r.sigla+' - '+r.nome}}</option>
         </select>
       </div>
       <div class="col-md-4">
         <label class="form-label">Quadra</label>
-        <select class="form-select" type="number" (ngModel)="quadras" (blur)="exibirReservas($event)">
+        <select class="form-select" type="number" (ngModel)="quadras" (change)="exibirReservas($event)">
+          <option ></option>
           <option *ngFor="let q of quadras" [ngValue]="q">{{q.nome}}</option>
         </select>
       </div>
@@ -24,6 +25,7 @@
     </form>
         <br>
         <br>
+    <div *ngIf="temReservas == true;else semReservas">
     <table class="table table-striped">
       <tr>
         <th>Horários</th>
@@ -129,6 +131,13 @@
           <ng-template #vago><div>Disponivel</div></ng-template>
         </tr>
     </table>
+  </div>
+  <ng-template #semReservas>
+      <mat-card-title class="title">
+          SEM RESERVAS CADASTRADAS
+      </mat-card-title>
+  </ng-template>
+  <br>
       <button class="btn-primary" mat-raised-button (click)="navigateToReservaCreate()">
         Nova Reserva
     </button>

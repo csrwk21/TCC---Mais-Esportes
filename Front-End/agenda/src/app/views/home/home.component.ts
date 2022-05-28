@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   quadra: any;
   regiao:any;
   quadras:any;
+  temReservas:boolean=false;
 
   segunda_10_12: any;
   segunda_12_14: any;
@@ -55,9 +56,7 @@ export class HomeComponent implements OnInit {
     this.reservaService.list(id)
     .subscribe(
       data => {
-        this.reservas = data;
-        console.log(data);
-        this.exibeHorarios();
+        this.verificaReservas(data);
       },
       error => {
         console.log(error);
@@ -77,10 +76,12 @@ export class HomeComponent implements OnInit {
   
   buscarQuadra(event:any):void{
     const id = parseInt(event.target.value)
+    console.log(event.target.value)
     this.exibirQuadras(id);
   }
   exibirReservas(event:any):void{
-    const id = parseInt(event.target.options.selectedIndex) 
+    var id = parseInt(event.target.options.selectedIndex) 
+    id = id - 1;
     const idteste = this.quadras[id];
     this.consultaReservas(idteste.id);
   }
@@ -95,9 +96,20 @@ export class HomeComponent implements OnInit {
       });
   }
   
+  verificaReservas(reservas:any):void{
+    if(reservas.length == 0){
+      this.zeraVariaveis();
+      this.temReservas = false;
+    }else{
+      this.reservas = reservas;
+      this.temReservas = true;
+      this.exibeHorarios();
+    }
+    
+  }
 
   exibeHorarios():void{
-     
+    
     for (const [key, value] of Object.entries(this.reservas)) {
       if(this.reservas[key].horario.id == 1 && this.reservas[key].semana.id == 1){
         this.segunda_10_12 = this.reservas[key];
@@ -176,5 +188,35 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+
+zeraVariaveis():void{
+
+this.segunda_10_12 = null;
+this.segunda_12_14 = null;
+this.segunda_14_16 = null;
+this.segunda_16_18 = null;
+this.segunda_18_20 = null;
+this.terca_10_12 = null;
+this.terca_12_14 = null;
+this.terca_14_16 = null;
+this.terca_16_18 = null;
+this.terca_18_20 = null;
+this.quarta_10_12 = null;
+this.quarta_12_14 = null;
+this.quarta_14_16 = null;
+this.quarta_16_18 = null;
+this.quarta_18_20 = null;
+this.quinta_10_12 = null;
+this.quinta_12_14 = null;
+this.quinta_14_16 = null;
+this.quinta_16_18 = null;
+this.quinta_18_20 = null;
+this.sexta_10_12 = null;
+this.sexta_12_14 = null;
+this.sexta_14_16 = null;
+this.sexta_16_18 = null;
+this.sexta_18_20 = null;
+  
+}
 
 }

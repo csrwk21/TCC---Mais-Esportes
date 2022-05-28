@@ -43,6 +43,7 @@ import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {NgSelectModule, NgOption} from '@ng-select/ng-select';
     QuadraDeleteComponent,
     GestorDeleteComponent,
     GestorUpdateComponent,
+    LoginComponent,
 
   ],
   imports: [

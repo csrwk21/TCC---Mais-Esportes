@@ -25,7 +25,7 @@ public class Usuario {
     @NotEmpty(message = "Campo login é obrigatório.")
     private String login;
 
-    @Column(name = "senha", length = 50)
+    @Column(name = "senha")
     @NotEmpty(message = "Campo senha é obrigatório.")
     private String senha;
 
