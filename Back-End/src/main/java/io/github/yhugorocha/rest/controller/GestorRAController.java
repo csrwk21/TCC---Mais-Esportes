@@ -1,6 +1,7 @@
 package io.github.yhugorocha.rest.controller;
 
 import io.github.yhugorocha.domain.entity.GestorRA;
+import io.github.yhugorocha.domain.entity.Quadra;
 import io.github.yhugorocha.domain.entity.Solicitante;
 import io.github.yhugorocha.domain.repositorio.GestoresRA;
 import io.github.yhugorocha.rest.dto.GestorRADTO;
@@ -37,6 +38,14 @@ public class GestorRAController {
         GestorRA gestor = service.salvar(dto);
         return gestor.getId();
     }
+
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public GestorRA update (@PathVariable Integer id, @Valid @RequestBody GestorRA gestor){
+
+        return service.update(id,gestor);
+    }
+
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id){

@@ -8,8 +8,12 @@ import io.github.yhugorocha.exception.RegraNegocioException;
 import io.github.yhugorocha.rest.dto.GestorRADTO;
 import io.github.yhugorocha.service.GestorRAService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 
 @Service
@@ -36,5 +40,16 @@ public class GestorRAServiceImpl implements GestorRAService {
         gestor.setRegiao(regiao);
 
         return repository.save(gestor);
+    }
+
+    @Override
+    public GestorRA update(Integer id, GestorRA gestor) {
+
+        repository.findById(id).map(gtExistente ->{
+            gestor.setId(gtExistente.getId());
+            repository.save(gestor);
+            return gtExistente;
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Gestor não encontrado"));
+        return gestor;
     }
 }

@@ -49,7 +49,7 @@ export class QuadraService {
   }
   
   getById(id: any):Observable<any>{
-    return this.http.get(`${this.baseUrl}/${id}`)
+    return this.http.get(`${this.baseUrl}${id}`)
   }
 
   list(): Observable<any>{

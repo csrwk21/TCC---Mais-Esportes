@@ -46,7 +46,13 @@ export class GestorService {
     )
   }
 
-
+  update(gestor:GestorRa):Observable<any>{
+    let id = gestor.id;
+    return this.http.put(`${this.baseUrl}${id}`,gestor).pipe(
+      map(obj => obj),
+     catchError(e => this.errorHandler(e))
+    )
+  }
 
   list(): Observable<any>{
     return this.http.get(this.baseUrl);

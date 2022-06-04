@@ -1,3 +1,8 @@
+import { AuthGuard } from './account/shared/auth.guard';
+import { CreatAccountComponent } from './account/creat-account/creat-account.component';
+import { LoginComponent } from './account/login/login.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
+import { InicioComponent } from './layout/inicio/inicio.component';
 import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-delete.component';
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 import { QuadraDeleteComponent } from './components/quadra/quadra-delete/quadra-delete.component';
@@ -19,60 +24,85 @@ import { ReservaCreateComponent } from './components/reserva/reserva-create/rese
 
 const routes: Routes = [{
   path: "",
-  component: HomeComponent
+  component: InicioComponent,
+  children:[
+    {
+      path:"",
+      component: HomeComponent
+    },
+    {
+      path:"solicitantes",
+      component: SolicitanteCrudComponent
+    },
+    {
+      path:"gestores",
+      component: GestorCrudComponent
+    },
+    {
+      path:"quadras",
+      component: QuadraCrudComponent
+    },
+    {
+      path:"solicitante/create",
+      component: SolicitanteCreateComponent
+    },
+    {
+      path:"solicitante/update/:id",
+      component: SolicitanteUpdateComponent
+    },
+    {
+      path:"solicitante/delete/:id",
+      component: SolicitanteDeleteComponent
+    },
+    {
+      path:"quadra/create",
+      component: QuadraCreateComponent
+    },
+    {
+      path:"quadra/update/:id",
+      component: QuadraUpdateComponent
+    },
+    {
+      path:"quadra/delete/:id",
+      component: QuadraDeleteComponent
+    },
+    {
+      path:"gestor/create",
+      component: GestorCreateComponent
+    },
+    {
+      path:"gestor/update/:id",
+      component: GestorUpdateComponent
+    },
+    {
+      path:"gestor/delete/:id",
+      component: GestorDeleteComponent
+    },
+    {
+      path:"reserva/create",
+      component: ReservaCreateComponent
+    }
+  ],
+  canActivate:[AuthGuard]
 },
 {
-  path:"solicitantes",
-  component: SolicitanteCrudComponent
-},
-{
-  path:"gestores",
-  component: GestorCrudComponent
-},
-{
-  path:"quadras",
-  component: QuadraCrudComponent
-},
-{
-  path:"solicitante/create",
-  component: SolicitanteCreateComponent
-},
-{
-  path:"solicitante/update/:id",
-  component: SolicitanteUpdateComponent
-},
-{
-  path:"solicitante/delete/:id",
-  component: SolicitanteDeleteComponent
-},
-{
-  path:"quadra/create",
-  component: QuadraCreateComponent
-},
-{
-  path:"quadra/update/:id",
-  component: QuadraUpdateComponent
-},
-{
-  path:"quadra/delete/:id",
-  component: QuadraDeleteComponent
-},
-{
-  path:"gestor/create",
-  component: GestorCreateComponent
-},
-{
-  path:"gestor/update/:id",
-  component: GestorUpdateComponent
-},
-{
-  path:"gestor/delete/:id",
-  component: GestorDeleteComponent
-},
-{
-  path:"reserva/create",
-  component: ReservaCreateComponent
+  path:'',
+  component: AuthenticationComponent,
+  children:[
+    {
+      path:'', redirectTo:'login', pathMatch:'full'
+    },
+    {
+      path:'login',
+      component: LoginComponent
+    },
+    {
+      path:'create-account',
+      component: CreatAccountComponent
+    }
+  ]
 }
+
 ];
 
 @NgModule({

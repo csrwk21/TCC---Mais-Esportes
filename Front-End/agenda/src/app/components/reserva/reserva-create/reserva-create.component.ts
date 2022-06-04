@@ -83,10 +83,10 @@ export class ReservaCreateComponent implements OnInit {
   
   fazerReserva():void{
     console.log(this.novaReserva);
-    //this.serviceReserva.fazerReserva(this.novaReserva).subscribe(() =>{
-     //this.serviceReserva.showMessage("Reserva cadastrada!")
-      //this.router.navigate(['/'])
-    //})
+    this.serviceReserva.fazerReserva(this.novaReserva).subscribe(() =>{
+     this.serviceReserva.showMessage("Reserva cadastrada!")
+      this.router.navigate(['/'])
+    })
   }
 
   buscarQuadra(event:any):void{
