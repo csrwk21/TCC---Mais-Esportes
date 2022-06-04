@@ -11,3 +11,12 @@ table {
 .new{
     right: 100px;
 }
+
+th.mat-header-cell {
+    text-align: center !important;
+  }
+
+td.mat-cell{
+    vertical-align: middle;
+    text-align: center !important;
+}
