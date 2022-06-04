@@ -44,6 +44,7 @@ import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 import { LoginComponent } from './views/login/login.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { LoginComponent } from './views/login/login.component';
 
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
