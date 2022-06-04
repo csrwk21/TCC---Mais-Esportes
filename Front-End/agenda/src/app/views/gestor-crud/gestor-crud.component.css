@@ -5,3 +5,12 @@ i.edit{
 i.delete{
     color: #e35e6b;
 }
+
+th.mat-header-cell {
+    text-align: center !important;
+  }
+
+td.mat-cell{
+    vertical-align: middle;
+    text-align: center !important;
+}
