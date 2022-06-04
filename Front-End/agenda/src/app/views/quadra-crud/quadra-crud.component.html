@@ -13,7 +13,47 @@
     </button>
 <br>
 <br>
-<table class="table table-striped ">
+
+<table mat-table [dataSource]="dataSource" class="table table-striped">
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>NOME </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="qtd_pessoas">
+    <th mat-header-cell *matHeaderCellDef>Quantidade Pessoas </th>
+    <td mat-cell *matCellDef="let element"> {{element.qtd_pessoas}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="regiao">
+    <th mat-header-cell *matHeaderCellDef>E-MAIL </th>
+    <td mat-cell *matCellDef="let element"> {{element.regiao.sigla + " - " + element.regiao.nome}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+    <td mat-cell  class="teste" *matCellDef="let element"><button mat-button routerLink="/quadra/update/{{element.id}}">
+      <i class="material-icons edit">
+        edits
+      </i>
+    </button>
+    <button mat-button  class="teste" routerLink="/quadra/delete/{{element.id}}">
+      <i class="material-icons delete">
+        delete
+      </i>
+    </button></td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>  
+
+  <mat-paginator #paginator [length]="totalRows" [pageSize]="pageSize"
+             (page)="pageChanged($event)"
+             [pageSizeOptions]="pageSizeOptions"
+             showFirstLastButtons="false">
+</mat-paginator>
+<!-- <table class="table table-striped ">
     <thead>
     <tr>
       <th scope="col">#</th>
@@ -42,6 +82,6 @@
     </td>
     </tr>
     </tbody>
-  </table>
+  </table> -->
 </mat-card>
 

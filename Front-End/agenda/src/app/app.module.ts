@@ -43,12 +43,15 @@ import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+
 import { LoginComponent } from './account/login/login.component';
 import { CreatAccountComponent } from './account/creat-account/creat-account.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import { InicioComponent } from './layout/inicio/inicio.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
+
+
 
 @NgModule({
   declarations: [
@@ -77,6 +80,7 @@ import { httpInterceptorProviders } from './http-interceptors';
 
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
