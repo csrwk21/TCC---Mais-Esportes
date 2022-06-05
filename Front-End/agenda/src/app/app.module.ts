@@ -51,6 +51,7 @@ import { InicioComponent } from './layout/inicio/inicio.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { NgxMaskModule } from 'ngx-mask';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -101,8 +102,7 @@ import { NgxMaskModule } from 'ngx-mask';
     MatAutocompleteModule,
     ReactiveFormsModule,
     NgSelectModule,
-
-    
+    MatSelectModule,
   ],
   providers: [
     httpInterceptorProviders
