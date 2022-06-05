@@ -50,6 +50,7 @@ import { AuthenticationComponent } from './layout/authentication/authentication.
 import { InicioComponent } from './layout/inicio/inicio.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
