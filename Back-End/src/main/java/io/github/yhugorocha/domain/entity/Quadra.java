@@ -41,7 +41,7 @@ public class Quadra {
     private Endereco endereco;
 
     @Column(name = "dt_registro")
-    private LocalDate dt_endereco = LocalDate.now();
+    private LocalDate dt_registro = LocalDate.now();
 
     @JsonIgnore
     @OneToMany(mappedBy = "quadra")

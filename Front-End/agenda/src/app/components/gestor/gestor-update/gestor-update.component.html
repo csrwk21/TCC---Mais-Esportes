@@ -4,29 +4,29 @@
     <form class="col-md-10">
         <div class="row g-6">
             <div class="col-md-6">
-              <label class="form-label">Nome</label>
+              <label class="form-label">Nome<span>*</span></label>
               <input type="text" class="form-control" name="nome" [(ngModel)]="gestor.nome" >
             </div>
             <div class="col-md-3">
-                <label class="form-label">CPF</label>
+                <label class="form-label">CPF<span>*</span></label>
               <input type="text" class="form-control" [(ngModel)]="gestor.cpf" name="cpf" >
             </div>
           </div>
           <br>
           <div class="row g-6">
             <div class="col-md-6">
-                <label class="form-label">Região Administrativa</label>
+                <label class="form-label">Região Administrativa<span>*</span></label>
                 <input type="text" class="form-control" [(ngModel)]="gestor.regiao.nome" name="regiao" disabled>
           </div>
           </div>
           <br>
           <div class="row g-6">
             <div class="col-md-6">
-                <label class="form-label">E-mail</label>
+                <label class="form-label">E-mail<span>*</span></label>
                 <input type="text" class="form-control" [(ngModel)]="gestor.email" name="email" >
               </div>
               <div class="col-md-3">
-                <label class="form-label" for="telefone">Telefone</label>
+                <label class="form-label" for="telefone">Telefone<span>*</span></label>
                 <input type="text" class="form-control" [(ngModel)]="gestor.telefone" name="telefone" >
             </div>
           </div>

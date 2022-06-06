@@ -3,6 +3,7 @@ import { GestorService } from './../gestor.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CrudServiceService } from 'src/app/views/service-crud/crud-service.service';
+import { AccountService } from 'src/app/account/shared/account.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { CrudServiceService } from 'src/app/views/service-crud/crud-service.serv
 export class GestorCreateComponent implements OnInit {
 
   regiao: any;
+  confSenha:String = '';
   gestor:GestorRa= {
     nome: '',
     cpf: '',
@@ -20,8 +22,14 @@ export class GestorCreateComponent implements OnInit {
     telefone:'',
     regiao: null
   }
+  
+  usuario:any ={
+    login:'',
+    senha:'',
+    admin:false
+  }
 
-  constructor(private service:CrudServiceService, private router:Router, private gestorService: GestorService) { }
+  constructor(private service:CrudServiceService, private router:Router, private gestorService: GestorService,private accountService:AccountService) { }
 
   ngOnInit(): void {
     this.exibirRegioes();
@@ -39,10 +47,21 @@ export class GestorCreateComponent implements OnInit {
   createGestor():void{
     this.gestor.regiao = this.gestor.regiao.id;
     console.log(this.gestor);
-    this.gestorService.create(this.gestor).subscribe(()=>{
-      this.gestorService.showMessage("Gestor criado com Sucesso!");
-      this.router.navigate(['/gestores']);
+    console.log(this.usuario);
+    if(this.usuario.senha == this.confSenha){
+      this.gestorService.create(this.gestor).subscribe(()=>{
+        this.accountService.create(this.usuario).subscribe(()=>{
+          this.gestorService.showMessage("Gestor criado com Sucesso!");
+          this.router.navigate(['/gestores']);
+      })
+      
     })
+    }else{
+      this.gestorService.showMessage("Senhas não conferem",true)
+    }
+
+    
+    
   }
   cancel():void{
   this.router.navigate(['/gestores'])

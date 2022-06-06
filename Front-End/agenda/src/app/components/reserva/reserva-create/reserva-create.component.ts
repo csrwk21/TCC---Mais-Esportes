@@ -90,7 +90,7 @@ export class ReservaCreateComponent implements OnInit {
   }
 
   buscarQuadra(event:any):void{
-    const id = parseInt(event.target.value[3])
+    const id = parseInt(event.target.value.substr(3,5))
     this.exibirQuadras(id);
   }
 

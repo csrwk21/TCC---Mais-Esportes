@@ -1,0 +1,46 @@
+.home .title {
+    font-size: 2rem;
+    font-weight: 250;
+    line-height: 1.2;
+    text-align: center;
+}
+.alinhamento{
+  justify-content: center;
+  margin-left: 25%;
+}
+.home .subtitle{
+    font-size: 1.1rem;
+    text-align: center;
+}
+div{
+  border-collapse: collapse;
+}
+table {
+    border-collapse: collapse;
+    border: 0px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+  .table-hu{
+    width: 1000px;
+  }
+
+  td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+    width: 100px;
+    height: 20px;
+  }
+
+  td {
+    text-align: center;
+    
+  }
+
+  teste{
+    background-color: rgb(133, 250, 133);
+  }
+
+  caption {
+    padding: 10px;
+  }

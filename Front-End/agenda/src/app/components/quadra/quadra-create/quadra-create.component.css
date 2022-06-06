@@ -6,7 +6,9 @@ mat-form-field {
     width: 220px;
 
 }
-
+span{
+    color: red;
+}
 .btn{
     margin-right: 10px;
     width: 100px;

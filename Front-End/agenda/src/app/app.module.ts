@@ -42,7 +42,8 @@ import { QuadraDeleteComponent } from './components/quadra/quadra-delete/quadra-
 import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-delete.component';
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+
+import {MatSelectModule} from '@angular/material/select';
 
 import { LoginComponent } from './account/login/login.component';
 import { CreatAccountComponent } from './account/creat-account/creat-account.component';
@@ -50,7 +51,8 @@ import { AuthenticationComponent } from './layout/authentication/authentication.
 import { InicioComponent } from './layout/inicio/inicio.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
-
+import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-publica.component';
+//import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -76,11 +78,12 @@ import { httpInterceptorProviders } from './http-interceptors';
     LoginComponent,
     CreatAccountComponent,
     AuthenticationComponent,
-    InicioComponent
+    InicioComponent,
+    ConsultaPublicaComponent
 
   ],
   imports: [
-    NgxMaskModule.forRoot(),
+    //NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -99,7 +102,7 @@ import { httpInterceptorProviders } from './http-interceptors';
     MatTableModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    NgSelectModule,
+    MatSelectModule,
 
     
   ],

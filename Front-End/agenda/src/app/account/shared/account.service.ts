@@ -2,16 +2,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from "jwt-decode";
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
   baseUrl = 'http://localhost:8080/agenda/usuarios/auth';
-  constructor(private http:HttpClient) { }
+  baseUrlCriar = 'http://localhost:8080/agenda/usuarios';
+  constructor(private http:HttpClient,private snackBar: MatSnackBar) { }
   
   
+  showMessage(msg: string, isError: boolean = false): void{
+    this.snackBar.open(msg,'x',{
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: isError ? ['msg-error']:['msg-sucess']
+    });
+  }
 
+  errorHandler(e: any): Observable<any>{
+    const msg = e.error.errors;
+    this.showMessage(`${msg}`,true)
+    return EMPTY;
+  }
 
    async login(user:any){
     const result = await this.http.post<any>(this.baseUrl,user).toPromise();
@@ -22,6 +37,13 @@ export class AccountService {
     }
 
     return false;
+  }
+
+  create(usuario: any): Observable<any>{
+    return this.http.post<any>(this.baseUrlCriar,usuario).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    )
   }
 
   getAuthorizationToken() {

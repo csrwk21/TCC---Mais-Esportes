@@ -4,31 +4,31 @@
     <form class="col-md-10">
         <div class="row g-6">
             <div class="col-md-6">
-                <label class="form-label">Nome</label>
+                <label class="form-label">Nome<span>*</span></label>
               <input type="text" class="form-control" [(ngModel)]="solicitante.nome" name="nome">
             </div>
             <div class="col-md-3">
-                <label class="form-label">CPF</label>
-              <input type="text" class="form-control"  mask="000.000.000-00" placeholder="xxx.xxx.xxx-xx" [(ngModel)]="solicitante.cpf" name="cpf">
+                <label class="form-label">CPF<span>*</span></label>
+              <input type="text" class="form-control" maxlength="14"  mask="000.000.000-00" placeholder="xxx.xxx.xxx-xx" [(ngModel)]="solicitante.cpf" name="cpf">
             </div>
             <div class="col-md-3">
-                <label class="form-label">RG</label>
-                <input type="text" class="form-control" [(ngModel)]="solicitante.rg" name="rg">
+                <label class="form-label">RG<span>*</span></label>
+                <input type="text" class="form-control" maxlength="10" [(ngModel)]="solicitante.rg" name="rg">
               </div>
             
           </div>
           <br>
           <div class="row g-6">
             <div class="col">
-                <label class="form-label">Data Nascimento</label>
+                <label class="form-label">Data Nascimento<span>*</span></label>
               <input type="date" class="form-control" [(ngModel)]="solicitante.dtnascimento" name="dtnascimento">
             </div>
             <div class="col-md-3">
-                <label class="form-label">Telefone</label>
-                <input type="text" class="form-control" mask="(00) 0000-0000" placeholder="(xx) xxxxx-xxxx" [(ngModel)]="solicitante.telefone" name="telefone">
+                <label class="form-label">Telefone<span>*</span></label>
+                <input type="text" class="form-control" maxlength="15" mask="(00) 00000-0000" placeholder="(xx) xxxxx-xxxx" [(ngModel)]="solicitante.telefone" name="telefone">
               </div>
             <div class="col">
-                <label class="form-label">E-mail</label>
+                <label class="form-label">E-mail<span>*</span></label>
                 <input type="email" class="form-control"aria-label="E-mail" [(ngModel)]="solicitante.email" name="email">
               </div>
           </div>
@@ -36,27 +36,27 @@
           <form #f="ngForm">
           <div class="row g-6">
             <div class="col-md-3">
-                <label class="form-label" for="cep">CEP</label>
-              <input type="text" class="form-control" id="cep" name="cep" ngModel #cep="ngModel" [(ngModel)]="solicitante.endereco.cep" (blur)="consultaCep(cep.value,f)">
+                <label class="form-label" for="cep">CEP<span>*</span></label>
+              <input type="text" class="form-control" maxlength="9" id="cep" name="cep" ngModel #cep="ngModel" [(ngModel)]="solicitante.endereco.cep" (blur)="consultaCep(cep.value,f)">
             </div>
             <div class="col">
-                <label class="form-label" for="logradouro">Logradouro</label>
+                <label class="form-label" for="logradouro">Logradouro<span>*</span></label>
                 <input type="text" class="form-control" id="logradouro" name="logradouro" ngModel #logradouro="ngModel" [(ngModel)]="solicitante.endereco.logradouro">
               </div>
             <div class="col">
-                <label class="form-label" for="bairro">Bairro</label>
+                <label class="form-label" for="bairro">Bairro<span>*</span></label>
                 <input type="text" class="form-control" id="bairro" name="bairro" ngModel #bairro="ngModel" [(ngModel)]="solicitante.endereco.bairro">
               </div>
           </div>
           <br>
           <div class="row g-6">
             <div class="col-md-4">
-                <label class="form-label" for="localidade">Localidade</label>
+                <label class="form-label" for="localidade">Localidade<span>*</span></label>
                 <input type="text" class="form-control" id="localidade" name="localidade" ngModel #localidade="ngModel" [(ngModel)]="solicitante.endereco.localidade">
             </div>
             
             <div class="col-md-2">
-                <label class="form-label" for="uf">UF</label>
+                <label class="form-label" for="uf">UF<span>*</span></label>
                 <input type="text" class="form-control" id="uf" name="uf" ngModel #uf="ngModel" [(ngModel)]="solicitante.endereco.uf">
               </div>
             </div>

@@ -21,8 +21,13 @@ import { SolicitanteCreateComponent } from './components/solicitante/solicitante
 import { QuadraCreateComponent } from './components/quadra/quadra-create/quadra-create.component';
 import { GestorCreateComponent } from './components/gestor/gestor-create/gestor-create.component';
 import { ReservaCreateComponent } from './components/reserva/reserva-create/reserva-create.component';
+import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-publica.component';
 
 const routes: Routes = [{
+    path:'consulta',
+    component: ConsultaPublicaComponent,
+  },
+  {
   path: "",
   component: InicioComponent,
   children:[
@@ -102,7 +107,6 @@ const routes: Routes = [{
     }
   ]
 }
-
 ];
 
 @NgModule({

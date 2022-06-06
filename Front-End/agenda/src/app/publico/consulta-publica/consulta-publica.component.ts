@@ -1,14 +1,14 @@
-import { CrudServiceService } from './../service-crud/crud-service.service';
-import { ReservaService } from './../../components/reserva/reserva.service';
 import { Component, OnInit } from '@angular/core';
-import { Router }from "@angular/router";
+import { Router } from '@angular/router';
+import { ReservaService } from 'src/app/components/reserva/reserva.service';
+import { CrudServiceService } from 'src/app/views/service-crud/crud-service.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-consulta-publica',
+  templateUrl: './consulta-publica.component.html',
+  styleUrls: ['./consulta-publica.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ConsultaPublicaComponent implements OnInit {
 
   constructor(private router: Router, private reservaService:ReservaService, private service:CrudServiceService) { }
   
