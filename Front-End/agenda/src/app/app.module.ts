@@ -34,7 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReservaCreateComponent } from './components/reserva/reserva-create/reserva-create.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { SolicitanteUpdateComponent } from './components/solicitante/solicitante-update/solicitante-update.component';
 import { QuadraUpdateComponent } from './components/quadra/quadra-update/quadra-update.component';
 import { SolicitanteDeleteComponent } from './components/solicitante/solicitante-delete/solicitante-delete.component';
@@ -43,8 +43,6 @@ import { GestorDeleteComponent } from './components/gestor/gestor-delete/gestor-
 import { GestorUpdateComponent } from './components/gestor/gestor-update/gestor-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import {MatSelectModule} from '@angular/material/select';
-
 import { LoginComponent } from './account/login/login.component';
 import { CreatAccountComponent } from './account/creat-account/creat-account.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
@@ -52,7 +50,10 @@ import { InicioComponent } from './layout/inicio/inicio.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
 import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-publica.component';
-//import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 @NgModule({
@@ -83,7 +84,7 @@ import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-pu
 
   ],
   imports: [
-    //NgxMaskModule.forRoot(),
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -102,8 +103,7 @@ import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-pu
     MatTableModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatSelectModule,
-
+    MatSelectModule
     
   ],
   providers: [

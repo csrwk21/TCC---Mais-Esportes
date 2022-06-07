@@ -1,11 +1,11 @@
 .home .title {
-    font-size: 3rem;
+    font-size: 24px;
     font-weight: 300;
     line-height: 1.2;
 }
 
 .home .subtitle{
-    font-size: 1.1rem;
+    font-size: 15px;
 }
 div{
   border-collapse: collapse;

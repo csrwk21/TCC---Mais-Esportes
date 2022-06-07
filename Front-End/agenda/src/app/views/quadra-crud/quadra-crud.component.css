@@ -14,3 +14,7 @@ td.mat-cell{
     vertical-align: middle;
       text-align: center !important;
 }
+
+.title.font-24-px{
+  font-size: 24px !important;
+}
