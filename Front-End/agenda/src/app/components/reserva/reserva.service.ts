@@ -32,6 +32,17 @@ export class ReservaService {
     return this.http.get(`${this.baseUrl}quadra/${id}`);
   }
 
+  buscarReserva(id:any):Observable<any>{
+    return this.http.get(`${this.baseUrl}${id}`);
+  }
+
+  cancelarReserva(id:any , status:any):Observable<any>{
+    return this.http.patch(`${this.baseUrl}${id}`,status).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    )
+  }
+
   fazerReserva(reserva:NovaReserva):Observable<NovaReserva>{
     return this.http.post<NovaReserva>(`${this.baseUrl}`,reserva).pipe(
       map(obj => obj),

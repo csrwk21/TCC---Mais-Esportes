@@ -1,8 +1,11 @@
 .header{
     
-    display: flex;
-    align-items: center;
-    
+    font-weight: bold;
+	font-size: 2rem;
+	text-align: right;
+    margin-left: 20px;
+    padding-top: 20px;
+
 }
 
 .header a{
@@ -20,5 +23,6 @@
     padding-right: 5px;
 }
 .sair{
-    flex-direction: row-reverse;
+    margin-top: -30px;
+    margin-right: 20px;
 }

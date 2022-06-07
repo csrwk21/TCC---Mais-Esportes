@@ -1,0 +1,79 @@
+<mat-card>
+    <mat-card-title>Dados Reserva</mat-card-title>
+    <br>
+        <div class="row g-12">
+            <div class="col-md-4">
+                <label class="form-label">Nome solicitante</label>
+              <input type="text" class="form-control" [value]="reserva.nomeSolicitante" disabled>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">CPF</label>
+              <input type="text" class="form-control" [value]="reserva.cpf" name="cpf" disabled>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Telefone</label>
+              <input type="text" class="form-control" maxlength="10" [value]="reserva.telefone" name="telefone" disabled>
+            </div>
+          </div>
+          <div class="row g-6">
+            <div class="col-md-4">
+                <label class="form-label">Quadra</label>
+                <input type="text" class="form-control" [value]="reserva.nomeQuadra" name="nomeQuadra" disabled>
+              </div>
+            <div class="col-md-3">
+                <label class="form-label" for="cep">CEP</label>
+              <input type="text" class="form-control"  [value]="reserva.enderecoQuadra.cep" disabled>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="logradouro">Logradouro</label>
+              <input type="text" class="form-control" [value]="reserva.enderecoQuadra.logradouro" disabled>
+          </div>
+          </div>
+            <div class="row g-6">
+            <div class="col-md-4">
+                <label class="form-label" for="bairro">Bairro</label>
+                <input type="text" class="form-control" [value]="reserva.enderecoQuadra.bairro" disabled>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="localidade">Localidade</label>
+              <input type="text" class="form-control" [value]="reserva.enderecoQuadra.localidade" disabled>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label" for="uf">UF</label>
+            <input type="text" class="form-control" [value]="reserva.enderecoQuadra.uf" disabled>
+          </div>
+          </div>
+            <div class="row g-6">
+            <div class="col-md-4">
+                <label class="form-label">Complemento</label>
+                <input type="text" class="form-control" [value]="reserva.enderecoQuadra.complemento" disabled>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Número</label>
+                <input type="email" class="form-control" [value]="reserva.enderecoQuadra.numero" disabled>
+              </div>
+            </div>
+            <div class="row g-6">
+                <div class="col-md-4">
+                    <label class="form-label">Dia da Semana</label>
+                    <input type="text" class="form-control" [value]="reserva.diaSemana" disabled>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">Horário</label>
+                    <input type="email" class="form-control" [value]="reserva.horario" disabled>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">Status</label>
+                    <input type="email" class="form-control" [value]="reserva.status" disabled>
+                  </div>
+                </div>
+    <br>
+    
+<button type="submit" class="btn-danger btn cancel " (click)="cancelReserva()">
+    Cancelar Reserva
+</button>
+<button class="btn-primary btn" (click)="cancel()">
+    voltar
+</button>
+</mat-card>
+

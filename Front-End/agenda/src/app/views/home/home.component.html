@@ -1,7 +1,7 @@
 <mat-card class="home">
   <mat-card-title class="title">
-    <h1>+Esportes</h1>
-  </mat-card-title>
+    CONSULTA DE RESERVA
+</mat-card-title>
   <div  class="alinhamento">
   <form #f="ngForm" >
   <div class="row g-8">
@@ -35,97 +35,98 @@
       <th>Sexta-Feira</th>
     </tr>
     <tr>
-      <th>10h as 12h</th>
+      <th>10h às 12h</th>
+      
       <td [ngStyle]="segunda_10_12 != undefined ?{'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="segunda_10_12 != undefined ;else vago">Reservado</div>
+        <div *ngIf="segunda_10_12 != undefined ;else vago"><a routerLink="/reserva/cancel/{{segunda_10_12.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="terca_10_12 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="terca_10_12 != undefined ;else vago">Reservado</div>
+        <div *ngIf="terca_10_12 != undefined ;else vago"><a routerLink="/reserva/cancel/{{terca_10_12.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quarta_10_12 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quarta_10_12 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quarta_10_12 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quarta_10_12.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quinta_10_12 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quinta_10_12 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quinta_10_12 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quinta_10_12.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="sexta_10_12 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="sexta_10_12 != undefined ;else vago">Reservado</div>
+        <div *ngIf="sexta_10_12 != undefined ;else vago"><a routerLink="/reserva/cancel/{{sexta_10_12.id}}">Reservado</a></div>
       </td>
       <ng-template #vago><div>Disponivel</div></ng-template>
     </tr>
     <tr>
-      <th>12h as 14h</th>
+      <th>12h às 14h</th>
       <td [ngStyle]="segunda_12_14 != undefined ?{'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="segunda_12_14 != undefined ;else vago">Reservado</div>
+        <div *ngIf="segunda_12_14 != undefined ;else vago"><a routerLink="/reserva/cancel/{{segunda_12_14.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="terca_12_14 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="terca_12_14 != undefined ;else vago">Reservado</div>
+        <div *ngIf="terca_12_14 != undefined ;else vago"><a routerLink="/reserva/cancel/{{terca_12_14.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quarta_12_14 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quarta_12_14 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quarta_12_14 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quarta_12_14.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quinta_12_14 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quinta_12_14 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quinta_12_14 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quinta_12_14.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="sexta_12_14 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="sexta_12_14 != undefined ;else vago">Reservado</div>
+        <div *ngIf="sexta_12_14 != undefined ;else vago"><a routerLink="/reserva/cancel/{{sexta_12_14.id}}">Reservado</a></div>
       </td>
       <ng-template #vago><div>Disponivel</div></ng-template>
     </tr>
     <tr>
-      <th>14h as 16h</th>
+      <th>14h às 16h</th>
       <td [ngStyle]="segunda_14_16 != undefined ?{'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="segunda_14_16 != undefined ;else vago">Reservado</div>
+        <div *ngIf="segunda_14_16 != undefined ;else vago"><a routerLink="/reserva/cancel/{{segunda_14_16.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="terca_14_16 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="terca_14_16 != undefined ;else vago">Reservado</div>
+        <div *ngIf="terca_14_16 != undefined ;else vago"><a routerLink="/reserva/cancel/{{terca_14_16.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quarta_14_16 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quarta_14_16 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quarta_14_16 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quarta_14_16.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quinta_14_16 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quinta_14_16 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quinta_14_16 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quinta_14_16.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="sexta_14_16 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="sexta_14_16 != undefined ;else vago">Reservado</div>
+        <div *ngIf="sexta_14_16 != undefined ;else vago"><a routerLink="/reserva/cancel/{{sexta_14_16.id}}">Reservado</a></div>
       </td>
       <ng-template #vago><div>Disponivel</div></ng-template>
     </tr>
     <tr>
-      <th>16h as 18h</th>
+      <th>16h às 18h</th>
       <td [ngStyle]="segunda_16_18 != undefined ?{'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="segunda_16_18 != undefined ;else vago">Reservado</div>
+        <div *ngIf="segunda_16_18 != undefined ;else vago"><a routerLink="/reserva/cancel/{{segunda_16_18.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="terca_16_18 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="terca_16_18 != undefined ;else vago">Reservado</div>
+        <div *ngIf="terca_16_18 != undefined ;else vago"><a routerLink="/reserva/cancel/{{terca_16_18.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quarta_16_18 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quarta_16_18 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quarta_16_18 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quarta_16_18.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="quinta_16_18 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="quinta_16_18 != undefined ;else vago">Reservado</div>
+        <div *ngIf="quinta_16_18 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quinta_16_18.id}}">Reservado</a></div>
       </td>
       <td [ngStyle]="sexta_16_18 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-        <div *ngIf="sexta_16_18 != undefined ;else vago">Reservado</div>
+        <div *ngIf="sexta_16_18 != undefined ;else vago"><a routerLink="/reserva/cancel/{{sexta_16_18.id}}">Reservado</a></div>
       </td>
       <ng-template #vago><div>Disponivel</div></ng-template>
     </tr>
     <tr>
-        <th>18h as 20h</th>
+        <th>18h às 20h</th>
         <td [ngStyle]="segunda_18_20 != undefined ?{'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-          <div *ngIf="segunda_18_20 != undefined ;else vago">Reservado</div>
+          <div *ngIf="segunda_18_20 != undefined ;else vago"><a routerLink="/reserva/cancel/{{segunda_18_20.id}}">Reservado</a></div>
         </td>
         <td [ngStyle]="terca_18_20 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-          <div *ngIf="terca_18_20 != undefined ;else vago">Reservado</div>
+          <div *ngIf="terca_18_20 != undefined ;else vago"><a routerLink="/reserva/cancel/{{terca_18_20.id}}">Reservado</a></div>
         </td>
         <td [ngStyle]="quarta_18_20 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-          <div *ngIf="quarta_18_20 != undefined ;else vago">Reservado</div>
+          <div *ngIf="quarta_18_20 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quarta_18_20.id}}">Reservado</a></div>
         </td>
         <td [ngStyle]="quinta_18_20 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-          <div *ngIf="quinta_18_20 != undefined ;else vago">Reservado</div>
+          <div *ngIf="quinta_18_20 != undefined ;else vago"><a routerLink="/reserva/cancel/{{quinta_18_20.id}}">Reservado</a></div>
         </td>
         <td [ngStyle]="sexta_18_20 != undefined ? {'background-color': 'rgb(222, 122, 122)'} : {'background-color': 'rgb(133, 250, 133)'}">
-          <div *ngIf="sexta_18_20 != undefined ;else vago">Reservado</div>
+          <div *ngIf="sexta_18_20 != undefined ;else vago"><a routerLink="/reserva/cancel/{{sexta_18_20.id}}">Reservado</a></div>
         </td>
         <ng-template #vago><div>Disponivel</div></ng-template>
       </tr>
@@ -136,9 +137,5 @@
         {{tituloReserva}}
     </mat-card-title>
 </ng-template>
-<br>
-<button class="btn-primary" mat-raised-button (click)="navigateToReservaCreate()">
-  Nova Reserva
-</button>
 </mat-card>
 

@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+mat-form-field {
+    width: 220px;
+
+}
+
+.btn{
+    margin-right: 10px;
+    width: 100px;
+}
+
+.cancel{
+    width: 200px;
+}

@@ -4,6 +4,15 @@
     line-height: 1.2;
 }
 
+a,
+a:hover,
+a:active,
+a:link,
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
 .home .subtitle{
     font-size: 15px;
 }

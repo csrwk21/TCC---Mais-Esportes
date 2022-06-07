@@ -52,6 +52,9 @@ import { httpInterceptorProviders } from './http-interceptors';
 import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-publica.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { MatSelectModule } from '@angular/material/select';
+import { CancelarComponent } from './components/reserva/cancelar/cancelar.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -80,7 +83,8 @@ import { MatSelectModule } from '@angular/material/select';
     CreatAccountComponent,
     AuthenticationComponent,
     InicioComponent,
-    ConsultaPublicaComponent
+    ConsultaPublicaComponent,
+    CancelarComponent
 
   ],
   imports: [
@@ -103,8 +107,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatSelectModule
-    
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     httpInterceptorProviders

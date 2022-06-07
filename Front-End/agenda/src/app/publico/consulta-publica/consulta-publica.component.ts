@@ -68,7 +68,6 @@ export class ConsultaPublicaComponent implements OnInit {
   exibirRegioes():void{
     this.service.buscarRegioes().subscribe(
       data=>{ this.regiao = data;
-        console.log(data)
       },
       error => {
         console.log(error);
@@ -76,8 +75,7 @@ export class ConsultaPublicaComponent implements OnInit {
   }
   
   buscarQuadra(event:any):void{
-    const id = parseInt(event.target.value)
-    console.log(event.target.value)
+    const id = parseInt(event.target.value.substr(3,5))
     this.exibirQuadras(id);
   }
   exibirReservas(event:any):void{
@@ -105,6 +103,7 @@ export class ConsultaPublicaComponent implements OnInit {
   }
   
   verificaReservas(reservas:any):void{
+    this.zeraVariaveis();
     if(reservas.length == 0){
       this.zeraVariaveis();
       this.temReservas = false;

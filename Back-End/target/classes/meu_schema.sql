@@ -72,3 +72,20 @@ CREATE TABLE tb_reserva(
     id_horario INTEGER REFERENCES tb_horario (id),
     status VARCHAR(10)
 );
+
+
+INSERT INTO db_api_agenda.tb_semana
+(dia)
+VALUES("Segunda-Feira"),
+      ("Terça-Feira"),
+      ("Quarta-Feira"),
+      ("Quinta-Feira"),
+      ("Sexta-Feira")
+
+INSERT INTO db_api_agenda.tb_horario
+(hora)
+VALUES('10h as 12h'),
+	  ('12h as 14h'),
+	  ('14h as 16h'),
+	  ('16h as 18h'),
+	  ('18h as 20h')

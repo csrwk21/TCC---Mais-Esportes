@@ -22,6 +22,7 @@ import { QuadraCreateComponent } from './components/quadra/quadra-create/quadra-
 import { GestorCreateComponent } from './components/gestor/gestor-create/gestor-create.component';
 import { ReservaCreateComponent } from './components/reserva/reserva-create/reserva-create.component';
 import { ConsultaPublicaComponent } from './publico/consulta-publica/consulta-publica.component';
+import { CancelarComponent } from './components/reserva/cancelar/cancelar.component';
 
 const routes: Routes = [{
     path:'consulta',
@@ -86,6 +87,10 @@ const routes: Routes = [{
     {
       path:"reserva/create",
       component: ReservaCreateComponent
+    },
+    {
+      path:"reserva/cancel/:id",
+      component: CancelarComponent
     }
   ],
   canActivate:[AuthGuard]
