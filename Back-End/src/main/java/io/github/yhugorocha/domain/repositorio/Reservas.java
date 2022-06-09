@@ -13,6 +13,12 @@ public interface Reservas extends JpaRepository<Reserva, Integer> {
     List<Reserva> reservaPorQuadra(@Param("idQuadra") Integer idQuadra);
 
     @Query(value = "SELECT r FROM Reserva r " +
+            "left join fetch r.solicitante s " +
+            "where (s.id =:idSolicitante AND " +
+            "r.status = 'ATIVA') ")
+    List<Reserva> existeReservaPorSolicitante (@Param("idSolicitante") Integer idSolicitante);
+
+    @Query(value = "SELECT r FROM Reserva r " +
             "left join fetch r.quadra q " +
             "left join fetch r.semana s " +
             "left join fetch r.horario h " +

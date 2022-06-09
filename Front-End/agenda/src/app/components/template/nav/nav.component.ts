@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/account/shared/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService:AccountService) { }
 
+  nomeUsuario:any = '';
+  
   ngOnInit(): void {
+    this.buscarNomeUsuario();
+  }
+
+  buscarNomeUsuario(){
+    this.nomeUsuario = this.accountService.getBuscarNomeUsuario();
   }
 
 }

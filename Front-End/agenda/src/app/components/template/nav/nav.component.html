@@ -13,12 +13,14 @@
                 </i>
                 Reservas
             </a>
+            <div *ngIf="nomeUsuario == 'admin'">
             <a mat-list-item routerLink="/gestores">
                 <i class="material-icons">
                     add
                 </i>
                 Gestores
             </a>
+            </div>
             <a mat-list-item routerLink="/quadras">
                 <i class="material-icons" >
                     add

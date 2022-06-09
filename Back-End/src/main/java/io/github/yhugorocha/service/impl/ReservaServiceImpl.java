@@ -56,13 +56,20 @@ public class ReservaServiceImpl implements ReservaService {
         reserva.setHorario(horario);
         reserva.setStatus(StatusReserva.ATIVA);
 
-         Boolean r = existeReserva(reserva);
+        Boolean s = existeReservaPorSolicitante(reserva);
 
-         if(r){
-             return reservas.save(reserva);
-         }else{
-             throw new RegraNegocioException("Já existe uma reserva cadastrada");
-         }
+        if(s){
+            Boolean r = existeReserva(reserva);
+            if(r){
+                return reservas.save(reserva);
+            }else{
+                throw new RegraNegocioException("Já existe uma reserva cadastrada");
+            }
+        }else{
+            throw new RegraNegocioException("Já existe uma reserva cadastrada para o solicitante");
+        }
+
+
     }
 
     public List<Reserva> obterReservasPorQuadra(Integer idQuadra){
@@ -116,6 +123,18 @@ public class ReservaServiceImpl implements ReservaService {
         List<Reserva> r = reservas.existeReserva(idQuadra,idSemana,idHorario);
 
         if(r.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private Boolean existeReservaPorSolicitante(Reserva reserva){
+        Integer idSolicitante = reserva.getSolicitante().getId();
+
+        List<Reserva> s = reservas.existeReservaPorSolicitante(idSolicitante);
+
+        if(s.isEmpty()){
             return true;
         }else{
             return false;

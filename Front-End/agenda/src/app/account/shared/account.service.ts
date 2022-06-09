@@ -46,6 +46,19 @@ export class AccountService {
     )
   }
 
+  getBuscarNomeUsuario():any{
+    var token:any = window.localStorage.getItem('token');
+
+    var decoded: any = jwt_decode(token);
+
+    if(decoded.sub === undefined){
+      return null
+    }
+
+    var login = decoded.sub;
+    return login;
+  }
+
   getAuthorizationToken() {
     const token = window.localStorage.getItem('token');
     return token;
