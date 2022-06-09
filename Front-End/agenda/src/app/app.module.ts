@@ -54,6 +54,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { MatSelectModule } from '@angular/material/select';
 import { CancelarComponent } from './components/reserva/cancelar/cancelar.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CPFPipe } from './cpf.pipe';
 
 
 
@@ -84,7 +85,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     AuthenticationComponent,
     InicioComponent,
     ConsultaPublicaComponent,
-    CancelarComponent
+    CancelarComponent,
+    CPFPipe
 
   ],
   imports: [
