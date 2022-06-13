@@ -82,11 +82,13 @@ export class ReservaCreateComponent implements OnInit {
     }
   
   fazerReserva():void{
+    if(this.validacaoFormulario()){
     console.log(this.novaReserva);
     this.serviceReserva.fazerReserva(this.novaReserva).subscribe(() =>{
      this.serviceReserva.showMessage("Reserva cadastrada!")
       this.router.navigate(['/'])
     })
+    }
   }
 
   buscarQuadra(event:any):void{
@@ -115,5 +117,39 @@ export class ReservaCreateComponent implements OnInit {
 
   cancel():void{
     this.router.navigate(['/'])
+  }
+
+  validacaoFormulario():boolean{
+    
+    let novaReserva = this.novaReserva;
+  
+    if(novaReserva.solicitante == ''){
+      this.serviceReserva.showMessage("Solicitante é obrigatório",true)
+      return false;
+    }
+ 
+    if(novaReserva.quadra == ''){
+      this.serviceReserva.showMessage("Quadra é obrigatório",true)
+      return false;
+    }
+    if(novaReserva.dtInicio == ''){
+      this.serviceReserva.showMessage("Data Inicio é obrigatório",true)
+      return false;
+    }
+  
+    if(novaReserva.dtFinal == ''){
+      this.serviceReserva.showMessage("Data Final é obrigatório",true)
+      return false;
+    }
+    if(novaReserva.semana == ''){
+      this.serviceReserva.showMessage("Dia da semana é obrigatório",true)
+      return false;
+    }
+    if(novaReserva.horario == ''){
+      this.serviceReserva.showMessage("Horário é obrigatório",true)
+      return false;
+    }
+  
+    return true;
   }
 }

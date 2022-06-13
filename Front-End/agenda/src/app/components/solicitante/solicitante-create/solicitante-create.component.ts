@@ -36,11 +36,82 @@ export class SolicitanteCreateComponent implements OnInit {
   }
 
   createSolicitante(): void{
+
+    var validacao = this.validacaoFormulario();
+    if(validacao){
       this.SolicitanteService.create(this.solicitante).subscribe(()=> {
         this.SolicitanteService.showMessage("Solicitante criado!")
         this.router.navigate(['/solicitantes'])
       })
+    }
+  }
+
+  validacaoFormulario():boolean{
     
+    let solicitante = this.solicitante;
+    console.log(solicitante.dtnascimento);
+    if(solicitante.nome == ''){
+      this.SolicitanteService.showMessage("Nome solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.cpf == ''){
+      this.SolicitanteService.showMessage("CPF solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.rg == ''){
+      this.SolicitanteService.showMessage("RG solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.telefone == ''){
+      this.SolicitanteService.showMessage("Telefone solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.email == ''){
+      this.SolicitanteService.showMessage("E-mail solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.endereco.cep == ''){
+      this.SolicitanteService.showMessage("Cep solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.endereco.logradouro == ''){
+      this.SolicitanteService.showMessage("Logradouro solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.endereco.bairro == ''){
+      this.SolicitanteService.showMessage("Bairro solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.endereco.localidade == ''){
+      this.SolicitanteService.showMessage("Localidade solicitante é obrigatório",true)
+      return false;
+    }
+    if(solicitante.endereco.uf == ''){
+      this.SolicitanteService.showMessage("UF solicitante é obrigatório",true)
+      return false;
+    }
+
+    if(solicitante.dtnascimento == ''){
+      this.SolicitanteService.showMessage("Data de nascimento é obrigatório",true)
+      return false;
+    }
+
+    if(!this.validaIdade(solicitante.dtnascimento)){
+      this.SolicitanteService.showMessage("Solicitante tem que ser maior de idade",true)
+      return false;
+    }
+    return true;
+  }
+
+  validaIdade(data:any):boolean{
+    let ano_atual = new Date().getFullYear();
+    let data_aniversario = data.split('-')[0];
+    let idade = ano_atual - data_aniversario;
+    console.log(idade)
+    if(idade >= 18){
+      return true
+    }
+    return false;
   }
 
   consultaCep(valor: any, form: any){

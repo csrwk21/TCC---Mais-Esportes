@@ -23,10 +23,13 @@ export class QuadraDeleteComponent implements OnInit {
   }
 
   deleteQuadra():void{
+    let confirmacao = confirm('Deseja realmente excluir essa quadra?');
+    if(confirmacao){
     this.quadraService.delete(this.quadra.id).subscribe(()=>{
       this.quadraService.showMessage("Quadra deletada com sucesso!")
       this.router.navigate(["/quadras"]);
     })
+    }
   }
 
   cancel():void{

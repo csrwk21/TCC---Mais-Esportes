@@ -26,11 +26,13 @@ export class QuadraUpdateComponent implements OnInit {
   }
 
   updateQuadra():void{
+    if(this.validacaoFormulario()){
     this.quadraService.update(this.quadra).subscribe(
       ()=> {
         this.quadraService.showMessage('Quadra atualizada com sucesso!');
         this.router.navigate(["/quadras"]);
       })
+    }
   }
 
   exibirRegioes():void{
@@ -61,4 +63,44 @@ export class QuadraUpdateComponent implements OnInit {
     this.router.navigate(['/quadras'])
   }
 
-}
+  validacaoFormulario():boolean{
+    
+    let quadra = this.quadra;
+  
+    if(quadra.nome == ''){
+      this.quadraService.showMessage("Nome quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.qtd_pessoas == ''){
+      this.quadraService.showMessage("Quantidade de pessoas na quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.regiao == '' || quadra.regiao == null){
+      this.quadraService.showMessage("Região da quadra é obrigatório",true)
+      return false;
+    }
+  
+    if(quadra.endereco.cep == ''){
+      this.quadraService.showMessage("Cep quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.endereco.logradouro == ''){
+      this.quadraService.showMessage("Logradouro quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.endereco.bairro == ''){
+      this.quadraService.showMessage("Bairro quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.endereco.localidade == ''){
+      this.quadraService.showMessage("Localidade quadra é obrigatório",true)
+      return false;
+    }
+    if(quadra.endereco.uf == ''){
+      this.quadraService.showMessage("UF quadra é obrigatório",true)
+      return false;
+    }
+  
+    return true;
+  }
+  }

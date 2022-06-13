@@ -25,12 +25,16 @@ export class CancelarComponent implements OnInit {
   }
 
   cancelReserva():void{
+    let confirmacao = confirm('Deseja realmente cancelar essa reserva?');
+    if(confirmacao){
     var id = this.reserva.codigo;
     this.reservaService.cancelarReserva(id,this.cancelar).subscribe(()=>{
       this.reservaService.showMessage("Reserva cancelada!")
        this.router.navigate(['/'])
      })
+    }
    }
+  
   cancel():void{
     this.router.navigate(['/'])
   }

@@ -23,11 +23,14 @@ export class SolicitanteDeleteComponent implements OnInit {
 
 
   deleteSolicitante():void{
+    let confirmacao = confirm('Deseja realmente excluir esse solicitante?');
+    if(confirmacao){
     this.service.delete(this.solicitante.id).subscribe(
       ()=>{
-        this.service.showMessage('Solicitante deletado com sucesso!');
+        this.service.showMessage('Solicitante excluido com sucesso!');
         this.router.navigate(["/solicitantes"]);
       })
+    }
   }
   
   cancel():void{

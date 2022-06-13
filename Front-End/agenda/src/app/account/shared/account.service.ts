@@ -29,14 +29,26 @@ export class AccountService {
   }
 
    async login(user:any){
-    const result = await this.http.post<any>(this.baseUrl,user).toPromise();
 
-    if(result && result.token){
-      window.localStorage.setItem('token',result.token);
-      return true;
+    try {
+      const result = await this.http.post<any>(this.baseUrl,user).toPromise();
+
+      if(result && result.token){
+        window.localStorage.setItem('token',result.token);
+        return true;
+      }
+      return false;
+
+    } catch (error) {
+      var valor = this.retornaErro(error);
+      this.showMessage(valor,true);
+      return false;
     }
+  }
 
-    return false;
+  retornaErro(e:any){
+    let valor = e.error.message;
+    return valor;
   }
 
   create(usuario: any): Observable<any>{

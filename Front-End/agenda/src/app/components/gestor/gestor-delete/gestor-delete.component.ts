@@ -29,10 +29,13 @@ export class GestorDeleteComponent implements OnInit {
   }
 
   deleteGestor():void{
+    let confirmacao = confirm('Deseja realmente excluir esse gestor?');
+    if(confirmacao){
     this.gestorService.delete(this.gestor.id).subscribe(()=>{
       this.gestorService.showMessage('Gestor deletado com sucesso');
       this.router.navigate(['/gestores']);
     })
+    }
   }
   cancel():void{
     this.router.navigate(['/gestores']);

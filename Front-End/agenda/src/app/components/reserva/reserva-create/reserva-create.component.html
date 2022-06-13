@@ -37,7 +37,7 @@
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">Horario<span>*</span></label>
+              <label class="form-label">Horário<span>*</span></label>
               <select class="form-select" type="number" name="horario" id="horario"  ngModel #horario="ngModel" [(ngModel)]="novaReserva.horario">
                 <option *ngFor="let h of horarios" [ngValue]="h.id">{{h.hora}}</option>
               </select>

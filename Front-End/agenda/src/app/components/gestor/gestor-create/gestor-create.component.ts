@@ -46,8 +46,6 @@ export class GestorCreateComponent implements OnInit {
 
   createGestor():void{
     this.gestor.regiao = this.gestor.regiao.id;
-    console.log(this.gestor);
-    console.log(this.usuario);
     if(this.usuario.senha == this.confSenha){
       this.gestorService.create(this.gestor).subscribe(()=>{
         this.accountService.create(this.usuario).subscribe(()=>{
