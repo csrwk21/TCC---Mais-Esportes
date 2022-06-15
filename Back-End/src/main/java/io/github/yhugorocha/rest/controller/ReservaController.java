@@ -28,10 +28,10 @@ public class ReservaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Integer save(@RequestBody ReservaDTO reservaDto){
+    public Reserva save(@RequestBody ReservaDTO reservaDto){
         Reserva reserva = service.save(reservaDto);
 
-        return reserva.getId();
+        return reserva;
     }
 
     @GetMapping("{id}")

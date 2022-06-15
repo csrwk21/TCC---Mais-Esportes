@@ -37,7 +37,7 @@ public class EmailServiceImpl {
         }catch (MailException e){
             email.setStatus_email(StatusEmail.ERROR);
         }finally {
-            return emails.save(email);
+            return null;
         }
     }
 }

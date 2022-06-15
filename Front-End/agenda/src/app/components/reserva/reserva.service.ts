@@ -3,6 +3,7 @@ import { NovaReserva } from './novaReserva.model';
 import { Observable, EMPTY, map, catchError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Email } from './Email.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class ReservaService {
 
   baseUrl = 'http://localhost:8080/agenda/reserva/';
+  baseUrlEmail = 'http://localhost:8080/agenda/email/';
   
   constructor(private http:HttpClient, private snackBar: MatSnackBar) { }
 
@@ -45,6 +47,14 @@ export class ReservaService {
 
   fazerReserva(reserva:NovaReserva):Observable<NovaReserva>{
     return this.http.post<NovaReserva>(`${this.baseUrl}`,reserva).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    )
+  }
+
+  enviarEmail(email:any):Observable<any>{
+    console.log(email)
+    return this.http.post<any>(`${this.baseUrlEmail}`,email).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     )

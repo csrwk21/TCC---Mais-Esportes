@@ -29,6 +29,7 @@ public class ReservaServiceImpl implements ReservaService {
     @Autowired
     Horarios horarios;
 
+
     @Override
     @Transactional
     public Reserva save(ReservaDTO reservaDto) {
@@ -68,7 +69,6 @@ public class ReservaServiceImpl implements ReservaService {
         }else{
             throw new RegraNegocioException("Já existe uma reserva cadastrada para o solicitante");
         }
-
 
     }
 
@@ -140,6 +140,7 @@ public class ReservaServiceImpl implements ReservaService {
             return false;
         }
     }
+
 
 
 }

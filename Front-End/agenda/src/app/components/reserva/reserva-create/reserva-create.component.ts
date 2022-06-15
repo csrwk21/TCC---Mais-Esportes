@@ -5,6 +5,7 @@ import { NovaReserva } from './../novaReserva.model';
 import { CrudServiceService } from './../../../views/service-crud/crud-service.service';
 import { Component, OnInit } from '@angular/core';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+import { Email } from '../Email.model';
 
 @Component({
   selector: 'app-reserva-create',
@@ -30,16 +31,25 @@ export class ReservaCreateComponent implements OnInit {
     semana:'',
     horario:''
 }
+  resposta:any;
+
+email:any = {
+    "owner_ref": "admin",
+    "email_from": "yhugorocha@gmail.com",
+    "email_to": "",
+    "subject": "Reserva Efetivada",
+    "texto": ""
+}
 
 
-  ngOnInit(): void {
-    this.exibirRegioes();
-    this.exibirSemana();
-    this.exibirHorario();
-    this.exibirSolicitantes();
+    ngOnInit(): void {
+      this.exibirRegioes();
+      this.exibirSemana();
+      this.exibirHorario();
+      this.exibirSolicitantes();
   }
   
-  exibirRegioes():void{
+    exibirRegioes():void{
       this.service.buscarRegioes().subscribe(
         data=>{ this.regioes = data;
           console.log(data)
@@ -83,13 +93,32 @@ export class ReservaCreateComponent implements OnInit {
   
   fazerReserva():void{
     if(this.validacaoFormulario()){
-    console.log(this.novaReserva);
-    this.serviceReserva.fazerReserva(this.novaReserva).subscribe(() =>{
-     this.serviceReserva.showMessage("Reserva cadastrada!")
-      this.router.navigate(['/'])
-    })
+    this.serviceReserva.fazerReserva(this.novaReserva).subscribe(
+      resp => {
+          this.resposta = resp;
+          this.enviarEmail();
+      })
     }
   }
+
+  enviarEmail():void{
+ 
+    let quadra = this.resposta.quadra.nome;
+    let solicitante = this.resposta.solicitante.nome;
+    let semana = this.resposta.semana.dia;
+    let horario = this.resposta.horario.hora;
+    let emailSolicitante = this.resposta.solicitante.email;
+
+    let msg = 'Olá, Senhor(a) '+solicitante+'.\n\ \n\ Sua reserva foi cadastrada com sucesso! \n\ \n\ Quadra: '+quadra+'. \n\ Dia da semana:'+semana+'. \n\ Horário: '+horario+'.\n\ \n\ \n\ E-mail enviado automaticamente, não é necessario responder!'
+
+    this.email.email_to = emailSolicitante;
+    this.email.texto = msg;
+    this.serviceReserva.enviarEmail(this.email).subscribe(() =>{
+     this.serviceReserva.showMessage("Reserva cadastrada!")
+     this.router.navigate(['/'])
+    })
+  }
+  
 
   buscarQuadra(event:any):void{
     const id = parseInt(event.target.value.substr(3,5))
